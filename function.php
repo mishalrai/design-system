@@ -49,7 +49,7 @@
       if('scss === $type') $type = 'css';
       foreach( $files as $key=> $value){
         $class_name = ( 0 === $key )? 'active': '';
-        $tab .= '<div class="tab-pane fade show '.$class_name.'" id="tab-'.$key.'" role="tabpanel" aria-labelledby="pills-home-tab">';
+        $tab .= '<div class="tab-pane show '.$class_name.'" id="tab-'.$key.'" role="tabpanel" aria-labelledby="pills-home-tab">';
            $tab .=  '<pre><code class="language-'.$type.'">';
            $tab .=  file_get_contents( $value['location'] );
            $tab .=  '</code></pre>';
