@@ -1,0 +1,28 @@
+$get-code-size: 3.3rem;
+$get-code-bg-color: #34395B;
+$get-code-text-color: #fff;
+
+.get-code{
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    color: $get-code-bg-color;
+    font-weight: bold;
+    
+    &:hover{
+        color: $get-code-bg-color;
+    }
+
+    span{
+        display: inline-block;
+        width: $get-code-size;
+        height: $get-code-size;
+        background: $get-code-bg-color;
+        border-radius: 50%;
+        line-height: $get-code-size;
+        text-align: center;
+        font-size: 1.3rem;
+        margin-left: 0.2rem;
+        color: $get-code-text-color;
+    }
+}

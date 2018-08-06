@@ -1,0 +1,27 @@
+$menu-text-color : $color_white;
+.main-navigation{
+    padding: 1rem 0 0 0;
+    list-style: none;
+    
+    ul{
+        padding: 0;
+        list-style: none;
+
+        li{
+            padding: 0.2rem 0.7rem;
+            color: $menu-text-color;
+            font-size: 0.85rem;
+            text-transform: capitalize;
+        }
+
+        a{
+            color: inherit;
+            display: block;
+            padding: 0.3rem 0.7rem;
+            color: darken($menu-text-color, 10%);
+            font-size: 0.8rem;
+        }
+    }
+
+
+}

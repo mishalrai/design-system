@@ -1,0 +1,47 @@
+$side-menu-width: 250px;
+$side-bg-color: #34395B;
+$side-transition: all 0.3s ease-in-out;
+
+.#{$prefix}-side-menu{
+    position:fixed;
+    left: 0;
+    width: $side-menu-width;
+    height: 100vh;
+    z-index: 999; 
+    top: 0;
+    background-color: $side-bg-color;
+    -webkit-transition: $side-transition;
+    transition: $side-transition;
+    
+    @at-root{
+        body{
+            margin-left: $side-menu-width;
+            -webkit-transition: $side-transition;
+            transition: $side-transition;
+        }
+    }
+    
+}
+
+/* for arrow animation */
+.back-arrow >a{
+    -webkit-transition: $side-transition;
+        transition: $side-transition;
+        display: inline-block;
+}
+
+/* close side menu */
+.side-menu-close{
+    margin-left: 0;
+
+    .#{$prefix}-side-menu{
+        left: -$side-menu-width;
+    }
+
+    .back-arrow{
+        >a{
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+}

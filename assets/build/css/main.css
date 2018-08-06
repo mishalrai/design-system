@@ -1,0 +1,220 @@
+/* BASIC COLOR */
+/* FONTS */
+/* FONT WEIGHT */
+html {
+  font-size: 16px; }
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: #000; }
+
+.md-side-menu {
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 999;
+  top: 0;
+  background-color: #34395B;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  body {
+    margin-left: 250px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+
+/* for arrow animation */
+.back-arrow > a {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; }
+
+/* close side menu */
+.side-menu-close {
+  margin-left: 0; }
+  .side-menu-close .md-side-menu {
+    left: -250px; }
+  .side-menu-close .back-arrow > a {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+
+.site-logo {
+  padding: 0.8rem 0.5rem;
+  display: block; }
+  .site-logo:before, .site-logo:after {
+    content: " ";
+    display: table; }
+  .site-logo:after {
+    clear: both; }
+  .site-logo:hover {
+    text-decoration: none; }
+  .site-logo svg {
+    float: left; }
+  .site-logo h1 {
+    padding: 0.6rem 0 0 0.7rem;
+    overflow: hidden;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff; }
+
+.main-navigation {
+  padding: 1rem 0 0 0;
+  list-style: none; }
+  .main-navigation ul {
+    padding: 0;
+    list-style: none; }
+    .main-navigation ul li {
+      padding: 0.2rem 0.7rem;
+      color: #fff;
+      font-size: 0.85rem;
+      text-transform: capitalize; }
+    .main-navigation ul a {
+      color: inherit;
+      display: block;
+      padding: 0.3rem 0.7rem;
+      color: #e6e6e6;
+      font-size: 0.8rem; }
+
+.back-arrow a {
+  color: #34395B;
+  font-size: 1.3rem; }
+  .back-arrow a:hover {
+    color: #0f101a; }
+
+.get-code {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: #34395B;
+  font-weight: bold; }
+  .get-code:hover {
+    color: #34395B; }
+  .get-code span {
+    display: inline-block;
+    width: 3.3rem;
+    height: 3.3rem;
+    background: #34395B;
+    border-radius: 50%;
+    line-height: 3.3rem;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-left: 0.2rem;
+    color: #fff; }
+
+.modal-lg {
+  max-width: -webkit-calc( 100% - 20px);
+  max-width: calc( 100% - 20px); }
+
+.modal {
+  padding-left: 0 !important; }
+
+.modal-dialog {
+  margin: 10px auto; }
+
+/* PrismJS 1.15.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; }
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822; }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray; }
+
+.token.punctuation {
+  color: #f8f8f2; }
+
+.namespace {
+  opacity: .7; }
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672; }
+
+.token.boolean,
+.token.number {
+  color: #ae81ff; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2; }
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #e6db74; }
+
+.token.keyword {
+  color: #66d9ef; }
+
+.token.regex,
+.token.important {
+  color: #fd971f; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
+
+/*# sourceMappingURL=main.css.map */
