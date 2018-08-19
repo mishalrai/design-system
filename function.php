@@ -69,7 +69,7 @@
         if( is_file( $file['location']) ){
            $print_data .= '<h5>'.$file['name'].'</h5>';
            $print_data .=  '<pre><code class="language-'.$type.'">';
-           $print_data .=  file_get_contents( $file['location'], true );
+           $print_data .=  htmlspecialchars(file_get_contents( $file['location'], true ));
            $print_data .=  '</code></pre>';
         }else{
            // echo $file['location'].'file not exist';
