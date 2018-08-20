@@ -6,7 +6,7 @@
 
 
     function nav_menu(){
-        $folders = ['components', 'layouts', 'page'];
+        $folders = ['components', 'layouts'];
         
         $menu = "<ul class='menu'>";
         foreach( $folders as $folder){
