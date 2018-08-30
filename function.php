@@ -6,7 +6,7 @@
 
 
     function nav_menu(){
-        $folders = ['components', 'layouts'];
+        $folders = ['components', 'layouts', 'page'];
         
         $menu = "<ul class='menu'>";
         foreach( $folders as $folder){
@@ -33,7 +33,7 @@
       $tab = '<div class="my-5">';
 
       /* tab title start */
-      $tab .= '<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">';
+      $tab .= '<ul class="nav nav-pills" id="pills-tab" role="tablist">';
       foreach( $files as $key=> $value){
           $class_name = ( 0 === $key )? 'active': '';
           $tab .= '<li class="nav-item">'; 

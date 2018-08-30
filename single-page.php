@@ -1,16 +1,17 @@
     
-    <?php
-        require  $_GET['cat'].'/'.$_GET['page'].'.php';
-    ?>
+<?php
+    require  $_GET['cat'].'/'.$_GET['page'].'.php';
+?>
 
 <a href="#" class="get-code" data-toggle="modal" data-target=".bd-example-modal-lg">
-        Get code <span><i class="fas fa-code"></i></span>
-    </a>
+    Get code <span><i class="fas fa-code"></i></span>
+</a>
+
 <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content rounded-0 border-0">
     <div class="modal-header p-4">
-        <h5 class="modal-title" id="exampleModalLabel">Let's Resuse Code</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Let's Resuse CODE</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

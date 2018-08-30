@@ -50,7 +50,8 @@ body {
   .site-logo:hover {
     text-decoration: none; }
   .site-logo svg {
-    float: left; }
+    float: left;
+    margin-top: 0.3rem; }
   .site-logo h1 {
     padding: 0.6rem 0 0 0.7rem;
     overflow: hidden;
@@ -111,6 +112,43 @@ body {
 
 .modal-dialog {
   margin: 10px auto; }
+
+.modal-backdrop {
+  background-color: #fff; }
+  .modal-backdrop.show {
+    opacity: 1; }
+
+.nav-link {
+  border: 0.15rem solid #ddd;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.2rem;
+  color: #34395A; }
+  .nav-link:hover, .nav-link:active {
+    color: #34395A; }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #34395A;
+  border-color: #34395A; }
+
+.wrapper h5 {
+  font-size: 0.9rem;
+  color: #34395A; }
+
+pre {
+  position: relative;
+  overflow: initial !important; }
+  pre .copy {
+    cursor: pointer;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    right: 0;
+    font-size: 0.8rem;
+    border: 1px solid #000;
+    color: #000;
+    padding: 0 0.3rem 0.2rem; }
 
 /* PrismJS 1.15.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */

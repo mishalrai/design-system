@@ -3841,7 +3841,11 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-right: 0.2rem;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -5385,7 +5389,7 @@ button.close {
 }
 
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity:;
 }
 
 .modal-header {
