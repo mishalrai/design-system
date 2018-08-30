@@ -1,0 +1,28 @@
+$nav-color: #34395A;
+
+.nav-link{
+    border: 0.15rem solid #ddd;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.2rem;
+    color: $nav-color;
+
+    &:hover,
+    &:active{
+        color: $nav-color;
+    }
+}
+
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link{
+    background-color: $nav-color;
+    border-color: $nav-color;
+}
+
+.wrapper{
+    h5{  
+        font-size: 0.9rem;
+        color: $nav-color;
+    }
+}
