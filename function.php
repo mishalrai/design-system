@@ -1,12 +1,12 @@
 <?php
 
     function get_home_url(){
-        echo "/ds";
+        echo "/design-system";
     };
 
 
     function nav_menu(){
-        $folders = ['components', 'layouts', 'page'];
+        $folders = ['components', 'layouts'];
         
         $menu = "<ul class='menu'>";
         foreach( $folders as $folder){
