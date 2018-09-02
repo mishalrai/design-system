@@ -1,13 +1,11 @@
 <?php
 
     function get_home_url(){
-    echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
+        echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };
 
-
-    
     function nav_menu(){
-        $folders = ['components', 'layouts', 'page'];
+        $folders = ['components', 'layouts', 'pages'];
         
         $menu = "<ul class='menu'>";
         foreach( $folders as $folder){
