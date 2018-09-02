@@ -9,147 +9,6 @@ body {
   font-weight: 400;
   color: #000; }
 
-.md-side-menu {
-  position: fixed;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  z-index: 999;
-  top: 0;
-  background-color: #34395B;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
-  body {
-    margin-left: 250px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
-
-/* for arrow animation */
-.back-arrow > a {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  display: inline-block; }
-
-/* close side menu */
-.side-menu-close {
-  margin-left: 0; }
-  .side-menu-close .md-side-menu {
-    left: -250px; }
-  .side-menu-close .back-arrow > a {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg); }
-
-.site-logo {
-  padding: 0.8rem 0.5rem;
-  display: block; }
-  .site-logo:before, .site-logo:after {
-    content: " ";
-    display: table; }
-  .site-logo:after {
-    clear: both; }
-  .site-logo:hover {
-    text-decoration: none; }
-  .site-logo svg {
-    float: left;
-    margin-top: 0.3rem; }
-  .site-logo h1 {
-    padding: 0.6rem 0 0 0.7rem;
-    overflow: hidden;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: #fff; }
-
-.main-navigation {
-  padding: 1rem 0 0 0;
-  list-style: none; }
-  .main-navigation ul {
-    padding: 0;
-    list-style: none; }
-    .main-navigation ul li {
-      padding: 0.2rem 0.7rem;
-      color: #fff;
-      font-size: 0.85rem;
-      text-transform: capitalize; }
-    .main-navigation ul a {
-      color: inherit;
-      display: block;
-      padding: 0.3rem 0.7rem;
-      color: #e6e6e6;
-      font-size: 0.8rem; }
-
-.back-arrow a {
-  color: #34395B;
-  font-size: 1.3rem; }
-  .back-arrow a:hover {
-    color: #0f101a; }
-
-.get-code {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  color: #34395B;
-  font-weight: bold; }
-  .get-code:hover {
-    color: #34395B; }
-  .get-code span {
-    display: inline-block;
-    width: 3.3rem;
-    height: 3.3rem;
-    background: #34395B;
-    border-radius: 50%;
-    line-height: 3.3rem;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-left: 0.2rem;
-    color: #fff; }
-
-.modal-lg {
-  max-width: -webkit-calc( 100% - 20px);
-  max-width: calc( 100% - 20px); }
-
-.modal {
-  padding-left: 0 !important; }
-
-.modal-dialog {
-  margin: 10px auto; }
-
-.modal-backdrop {
-  background-color: #fff; }
-  .modal-backdrop.show {
-    opacity: 1; }
-
-.nav-link {
-  border: 0.15rem solid #ddd;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-right: 0.2rem;
-  color: #34395A; }
-  .nav-link:hover, .nav-link:active {
-    color: #34395A; }
-
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  background-color: #34395A;
-  border-color: #34395A; }
-
-.wrapper h5 {
-  font-size: 0.9rem;
-  color: #34395A; }
-
-pre {
-  position: relative;
-  overflow: initial !important; }
-  pre .copy {
-    cursor: pointer;
-    position: absolute;
-    bottom: calc(100% + 5px);
-    right: 0;
-    font-size: 0.8rem;
-    border: 1px solid #000;
-    color: #000;
-    padding: 0 0.3rem 0.2rem; }
-
 /* PrismJS 1.15.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */
 /**
@@ -254,5 +113,143 @@ pre[class*="language-"] {
 
 .token.entity {
   cursor: help; }
+
+.md-side-menu {
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 999;
+  top: 0;
+  background-color: #34395B;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  body {
+    margin-left: 250px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+
+/* for arrow animation */
+.back-arrow > a {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; }
+
+/* close side menu */
+.side-menu-close {
+  margin-left: 0; }
+  .side-menu-close .md-side-menu {
+    left: -250px; }
+  .side-menu-close .back-arrow > a {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+
+.site-logo {
+  padding: 0.8rem 0.5rem;
+  display: block; }
+  .site-logo:before, .site-logo:after {
+    content: " ";
+    display: table; }
+  .site-logo:after {
+    clear: both; }
+  .site-logo:hover {
+    text-decoration: none; }
+  .site-logo h1 {
+    padding: 0.6rem 0 0 0.7rem;
+    overflow: hidden;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff; }
+
+.main-navigation {
+  padding: 1rem 0 0 0;
+  list-style: none; }
+  .main-navigation ul {
+    padding: 0;
+    list-style: none; }
+    .main-navigation ul li {
+      padding: 0.2rem 0.7rem;
+      color: #fff;
+      font-size: 0.85rem;
+      text-transform: capitalize; }
+    .main-navigation ul a {
+      color: inherit;
+      display: block;
+      padding: 0.3rem 0.7rem;
+      color: #e6e6e6;
+      font-size: 0.8rem; }
+
+.back-arrow a {
+  color: #34395B;
+  font-size: 1.3rem; }
+  .back-arrow a:hover {
+    color: #0f101a; }
+
+.get-code {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: #34395B;
+  font-weight: bold; }
+  .get-code:hover {
+    color: #34395B; }
+  .get-code span {
+    display: inline-block;
+    width: 3.3rem;
+    height: 3.3rem;
+    background: #34395B;
+    border-radius: 50%;
+    line-height: 3.3rem;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-left: 0.2rem;
+    color: #fff; }
+
+.modal-lg {
+  max-width: -webkit-calc( 100% - 20px);
+  max-width: calc( 100% - 20px); }
+
+.modal {
+  padding-left: 0 !important; }
+
+.modal-dialog {
+  margin: 10px auto; }
+
+.modal-backdrop {
+  background-color: #fff; }
+  .modal-backdrop.show {
+    opacity: 1; }
+
+.nav-link {
+  border: 0.15rem solid #ddd;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.2rem;
+  color: #34395A; }
+  .nav-link:hover, .nav-link:active {
+    color: #34395A; }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #34395A;
+  border-color: #34395A; }
+
+.wrapper h5 {
+  font-size: 0.9rem;
+  color: #34395A; }
+
+pre {
+  position: relative;
+  overflow: initial !important; }
+  pre .copy {
+    cursor: pointer;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    right: 0;
+    font-size: 0.8rem;
+    border: 1px solid #000;
+    color: #000;
+    padding: 0 0.3rem 0.2rem; }
 
 /*# sourceMappingURL=main.css.map */
