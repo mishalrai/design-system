@@ -1,16 +1,17 @@
 <?php
 
     function get_home_url(){
-        echo "/ds";
+    echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };
 
 
+    
     function nav_menu(){
         $folders = ['components', 'layouts', 'page'];
         
         $menu = "<ul class='menu'>";
         foreach( $folders as $folder){
-            if( sizeof(scandir($folder)) > 2){
+            if( file_exists($folder) && sizeof(scandir($folder)) > 2 ){ 
                 $menu .= "<li>".$folder;
                     if(is_dir($folder)){
                         $menu .= "<ul>";
@@ -126,3 +127,18 @@
         }
     }
 
+    function downloadAllFiles( $files, $zipFileName ){
+        $files = array('readme.txt', 'test.html', 'image.gif');
+        $zipname = 'file.zip';
+        $zip = new ZipArchive;
+        $zip->open($zipname, ZipArchive::CREATE);
+        foreach ($files as $file) {
+        $zip->addFile($file);
+        }
+        $zip->close();
+
+        header('Content-Type: application/zip');
+        header('Content-disposition: attachment; filename='.$zipname);
+        header('Content-Length: ' . filesize($zipname));
+        readfile($zipname);
+    }
