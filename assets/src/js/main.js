@@ -1,15 +1,70 @@
+import {config, updateConfig} from './config.js';
+
 class designSystemUI{
 
     constructor(){
-        this.toggleSideMenu();
+        this.toggleSideBar();
         this.copyToClipboard();
+        this.downloadFiles();
+        this.toggleMenu();
     }
 
-    toggleSideMenu(){
+    toggleMenu(){
+        const selector = 'ul.menu > li > a',
+              className = 'open';
+
+            $('ul.menu > li').eq(config().selectedChild).find('ul')
+                .slideDown()
+                .parent()
+                .addClass(className);
+
+            $(selector).on( 'click', e=>{
+                e.preventDefault();
+                updateConfig('selectedChild', $(e.target).attr('data-index') );
+                
+                $(e.target)
+                    .next()
+                    .slideDown()
+                    .parent()
+                    .addClass(className)
+                    .siblings()
+                    .removeClass(className)
+                    .find('ul')
+                    .slideUp();
+        })
+    }
+
+
+    toggleSideBar(){
+        if(config().isSideMenuOpened)
+            $('body').removeClass("side-menu-close");
+        else
+            $('body').addClass("side-menu-close");
+
         $('.back-arrow a').on('click', e=>{
             e.preventDefault();
+            updateConfig('isSideMenuOpened', !config().isSideMenuOpened );
             $('body').toggleClass("side-menu-close");
         })
+    }
+
+    downloadFiles(){
+        $(document).on('click', '.download-files', e => {
+            $.ajax({
+                url: 'function.php',
+                type: 'POST',
+                data: { data : {function : 'download_files', files: data } },
+                dataType: 'json',
+                success: data =>{
+                    console.log(data);
+                },
+                error: error=>{
+                    console.log(error);
+                }
+            })
+            
+        })
+        
     }
 
     copyToClipboard() {

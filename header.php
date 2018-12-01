@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="stylesheet" href="assets/build/css/vendor.css">
         <link rel="stylesheet" href="assets/build/css/main.css">
-        <script src="assets/build/js/jquery.min.js"></script>
+        <script defer src="assets/src/js/vendor/js.cookie.min.js"></script>
     </head>
 
-    <body>
+    <body class="side-menu-close">

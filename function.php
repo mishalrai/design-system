@@ -1,26 +1,34 @@
 <?php
 
+    if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
+        $files = $_POST['data']['files'];
+        $_POST['data']['function']($files); 
+    }
+
     function get_home_url(){
         echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };
 
     function nav_menu(){
         $folders = ['components', 'layouts', 'pages'];
-        
+        $counter = 0;
         $menu = "<ul class='menu'>";
+
         foreach( $folders as $folder){
             if( file_exists($folder) && sizeof(scandir($folder)) > 2 ){ 
-                $menu .= "<li>".$folder;
+                $menu .= "<li><a href='#' data-index='".$counter."'>".$folder."<span class='icon'><i class='fa fa-angle-down'></i></span></a>";
                     if(is_dir($folder)){
                         $menu .= "<ul>";
                             foreach( scandir($folder) as $file_name){
+                                $class_name = basename($file_name,'.php') === $_GET['page'] ? 'active': '';
                                 if (!in_array($file_name, array(".",".."))){
-                                    $menu .= "<li><a href='?cat=".$folder."&page=".basename($file_name,'.php')."'>".str_replace("-", " ",basename($file_name, '.php') )."</a></li>";
+                                    $menu .= "<li class=".$class_name."><a href='?cat=".$folder."&page=".basename($file_name,'.php')."'>".str_replace("-", " ",basename($file_name, '.php') )."</a></li>";
                                 } 
                             }
                         $menu .= "</ul>";
                     }
                 $menu .= "</li>";
+                $counter++;
             }
         }
         $menu .= '</ul>';
@@ -29,6 +37,8 @@
 
     
     function get_tab_code( $files, $type ){
+      $files_locations = array();
+      echo '<a href="#"  class="download-files">Download Files</a>';
       $tab = '<div class="my-5">';
 
       /* tab title start */
@@ -53,12 +63,14 @@
            $tab .=  file_get_contents( $value['location'] );
            $tab .=  '</code></pre>';
         $tab .= '</div>';
+        array_push( $files_locations, $value['location'] );
       }
       $tab .= '</div>'; 
 
       $tab .= '</div>'; 
 
       echo $tab;
+      echo "<script> var data=".json_encode($files_locations)."</script>";
     }
     
 
@@ -125,18 +137,25 @@
         }
     }
 
-    function downloadAllFiles( $files, $zipFileName ){
-        $files = array('readme.txt', 'test.html', 'image.gif');
-        $zipname = 'file.zip';
+    function download_files( $files ){
+        
         $zip = new ZipArchive;
-        $zip->open($zipname, ZipArchive::CREATE);
+        $zipname = 'files.zip';
+         if ( $zip->open($zipname, ZipArchive::CREATE)  !== true ){
+            echo "sorry zip creation filed at this time ";
+         };
+
         foreach ($files as $file) {
-        $zip->addFile($file);
+            $zip->addFile($file);
         }
+        
         $zip->close();
 
-        header('Content-Type: application/zip');
-        header('Content-disposition: attachment; filename='.$zipname);
-        header('Content-Length: ' . filesize($zipname));
-        readfile($zipname);
+        if (file_exists($zipname)){
+            header('Content-Type: application/zip');
+            header('Content-disposition: attachment; filename='.$zipname);
+            header('Content-Length: ' . filesize($zipname));
+            readfile($zipname);
+            unlink($zip);
+        }
     }

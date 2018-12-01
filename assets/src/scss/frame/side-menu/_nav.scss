@@ -1,3 +1,5 @@
+$active-menu-color : darken( #34395B, 7% );
+
 $menu-text-color : $color_white;
 .main-navigation{
     padding: 1rem 0 0 0;
@@ -7,11 +9,50 @@ $menu-text-color : $color_white;
         padding: 0;
         list-style: none;
 
+        ul{
+            display: none;
+
+            li.active{
+                a{
+                    background-color: $active-menu-color;
+                }
+            }
+        }
+
         li{
             padding: 0.2rem 0.7rem;
             color: $menu-text-color;
             font-size: 0.85rem;
             text-transform: capitalize;
+            position: relative;
+            -webkit-transform: perspective(1px) translateZ(0);
+            -moz-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+
+            &.open{
+                .icon svg{
+
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+            }
+
+            .icon{
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                line-height: 2.7;
+                font-size: 0.8rem;
+                width: 34px;
+                z-index: -1;
+                text-align: center;
+                
+                svg{
+                    -webkit-transition : all 0.3s ease-in-out;
+                    transition : all 0.3s ease-in-out;
+                }
+            }
         }
 
         a{

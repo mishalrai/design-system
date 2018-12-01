@@ -122,17 +122,17 @@ pre[class*="language-"] {
   z-index: 999;
   top: 0;
   background-color: #34395B;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
+  -webkit-transition: left 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out, margin 0.3s ease-in-out; }
   body {
     margin-left: 250px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
+    -webkit-transition: left 0.3s ease-in-out, margin 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out, margin 0.3s ease-in-out; }
 
 /* for arrow animation */
 .back-arrow > a {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: left 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out, margin 0.3s ease-in-out;
   display: inline-block; }
 
 /* close side menu */
@@ -167,11 +167,35 @@ pre[class*="language-"] {
   .main-navigation ul {
     padding: 0;
     list-style: none; }
+    .main-navigation ul ul {
+      display: none; }
+      .main-navigation ul ul li.active a {
+        background-color: #272b44; }
     .main-navigation ul li {
       padding: 0.2rem 0.7rem;
       color: #fff;
       font-size: 0.85rem;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      position: relative;
+      -webkit-transform: perspective(1px) translateZ(0);
+      -moz-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0); }
+      .main-navigation ul li.open .icon svg {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg); }
+      .main-navigation ul li .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        line-height: 2.7;
+        font-size: 0.8rem;
+        width: 34px;
+        z-index: -1;
+        text-align: center; }
+        .main-navigation ul li .icon svg {
+          -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out; }
     .main-navigation ul a {
       color: inherit;
       display: block;
