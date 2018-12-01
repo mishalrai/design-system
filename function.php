@@ -20,10 +20,14 @@
                     if(is_dir($folder)){
                         $menu .= "<ul>";
                             foreach( scandir($folder) as $file_name){
-                                $class_name = basename($file_name,'.php') === $_GET['page'] ? 'active': '';
-                                if (!in_array($file_name, array(".",".."))){
+                                $class_name = '';
+                                
+                                if(isset($_GET['page']))
+                                    $class_name = basename($file_name,'.php') === $_GET['page'] ? 'active': '';
+
+                                if (!in_array($file_name, array(".","..")))
                                     $menu .= "<li class=".$class_name."><a href='?cat=".$folder."&page=".basename($file_name,'.php')."'>".str_replace("-", " ",basename($file_name, '.php') )."</a></li>";
-                                } 
+                                
                             }
                         $menu .= "</ul>";
                     }
