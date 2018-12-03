@@ -17,11 +17,34 @@
         </button>
       </div>
       <div class="modal-body  p-4">
-      <?php 
-         get_code($_GET['cat'].'/'.$_GET['page'], 'php');
-         get_code('assets/src/scss/'.$_GET['cat'].'/'.$_GET['page'], 'scss');
-         get_code('assets/src/js/'.$_GET['cat'].'/'.$_GET['page'], 'js');
-      ?>
+      
+        <?php 
+          get_code($_GET['cat'].'/'.$_GET['page'], 'php');
+          get_code('assets/src/scss/'.$_GET['cat'].'/'.$_GET['page'], 'scss');
+          get_code('assets/src/js/'.$_GET['cat'].'/'.$_GET['page'], 'js');
+        ?>
+
+        <div class="mt-5">
+          <h2>Download Files</h2>
+          <?php 
+            $files_with_extensions = array(
+                'php' => array(
+                          'path' => $_GET['cat'].'/'.$_GET['page'],
+                          'base_url' => $_GET['cat'].'/'
+                        ),
+                'scss' => array(
+                          'path' => 'assets/src/scss/'.$_GET['cat'].'/'.$_GET['page'],
+                          'base_url' => 'assets/src/scss/'.$_GET['cat'].'/'
+                  ),
+                'js' => array(
+                    'path' => 'assets/src/js/'.$_GET['cat'].'/'.$_GET['page'],
+                    'base_url' => 'assets/src/js/'.$_GET['cat'].'/'
+                )
+              );
+              get_downloadable_file_lists($files_with_extensions);
+          ?>
+        </div>
+
     </div>
     </div>
   </div>

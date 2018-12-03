@@ -141,13 +141,49 @@
         }
     }
 
-    function download_files( $files ){
-        
+    function get_check_box_template( $data_val, $name, $counter ){
+        return "
+            <div class='form-group form-check'>
+                <input type='checkbox' name=".$data_val." class='form-check-input' id='data-".$counter."'>
+                <label class='form-check-label' for='data-".$counter."'>".$name."</label>
+            </div>
+        ";
+    }
+
+    function get_downloadable_file_lists( $files ){
+        $template = '<form>';
+        $counter = 0;
+
+        foreach( $files as $extension => $file){
+            $path = $file['path'];
+            $base_url = $file['base_url'];
+            $file = array();
+
+            if( is_dir($path) ){
+                $ffs = scandir($path);
+                unset($ffs[array_search('.', $ffs, true)]);
+                unset($ffs[array_search('..', $ffs, true)]);
+                foreach( $ffs as $file_name ){
+                    $template .=  get_check_box_template('../'.$base_url.$file_name, $file_name, $counter++ );
+                };
+            }else{
+                $file_info = get_files_paths( $path, $files, $extension);
+                if( file_exists( $file_info['location'] ) ){
+                    $template .= get_check_box_template('../'.$file_info['location'], $file_info['name'] , $counter++ );
+                }
+            }
+        }
+
+        $template .= '<button>Download file</button> </form>';
+        echo $template;
+    }
+
+    function download_files( $files ){   
         $zip = new ZipArchive;
         $zipname = 'files.zip';
-         if ( $zip->open($zipname, ZipArchive::CREATE)  !== true ){
+        if ( $zip->open($zipname, ZipArchive::CREATE)  !== true ){
             echo "sorry zip creation filed at this time ";
-         };
+        };
 
         foreach ($files as $file) {
             $zip->addFile($file);

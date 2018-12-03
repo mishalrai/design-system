@@ -7,6 +7,33 @@ class designSystemUI{
         this.copyToClipboard();
         this.downloadFiles();
         this.toggleMenu();
+        this.downloadFile();
+    }
+
+    downloadFile(){
+
+        var request = new XMLHttpRequest();
+        request.open('POST', 'http://localhost/design-system/api/json/download', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.responseType = 'blob';
+
+        var disposition = request.getResponseHeader('content-disposition');
+        var matches = /"([^"]*)"/.exec(disposition);
+        var filename = (matches != null && matches[1] ? matches[1] : 'file.zip');
+
+        // The actual download
+        console.log( request.response );
+        var blob = new Blob([request.response], { type: 'application/zip' });
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+        
     }
 
     toggleMenu(){
