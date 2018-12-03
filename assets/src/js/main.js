@@ -11,7 +11,7 @@ class designSystemUI{
     }
 
     downloadFile(){
-
+        
         var request = new XMLHttpRequest();
         request.open('POST', 'http://localhost/design-system/api/json/download', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -22,17 +22,25 @@ class designSystemUI{
         var filename = (matches != null && matches[1] ? matches[1] : 'file.zip');
 
         // The actual download
-        console.log( request.response );
-        var blob = new Blob([request.response], { type: 'application/zip' });
-        var link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = filename;
+        request.onload = function() {
+            var blob = new Blob([request.response], { type: 'octet/stream' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+    
+            document.body.appendChild(link);
+    
+            link.click();
+    
+            document.body.removeChild(link);
+        }
 
-        document.body.appendChild(link);
+        request.send();
 
-        link.click();
 
-        document.body.removeChild(link);
+        // $.get( 'http://localhost/design-system/api/json/download' ).then(function( response ){
+        //     console.log( response );
+        // });
         
     }
 
