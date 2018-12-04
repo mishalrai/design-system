@@ -42,7 +42,6 @@
     
     function get_tab_code( $files, $type ){
       $files_locations = array();
-      echo '<a href="#"  class="download-files">Download Files</a>';
       $tab = '<div class="my-5">';
 
       /* tab title start */
@@ -91,6 +90,7 @@
         }
         echo $print_data;
     }
+
     
     function get_files_paths($dir, &$lists, $type){
         
@@ -141,6 +141,7 @@
         }
     }
 
+
     function get_check_box_template( $data_val, $name, $counter ){
         return "
             <div class='form-group form-check'>
@@ -150,8 +151,9 @@
         ";
     }
 
-    function get_downloadable_file_lists( $files ){
-        $template = '<form>';
+    
+    function get_downloadable_file_lists( $files, $file_name ){
+        $template = '<form id="download-file" data-file-name="'.$file_name.'">';
         $counter = 0;
 
         foreach( $files as $extension => $file){
@@ -164,7 +166,7 @@
                 unset($ffs[array_search('.', $ffs, true)]);
                 unset($ffs[array_search('..', $ffs, true)]);
                 foreach( $ffs as $file_name ){
-                    $template .=  get_check_box_template('../'.$base_url.$file_name, $file_name, $counter++ );
+                    $template .=  get_check_box_template('../'.$path.'/'.$file_name, $file_name, $counter++ );
                 };
             }else{
                 $file_info = get_files_paths( $path, $files, $extension);
@@ -174,7 +176,7 @@
             }
         }
 
-        $template .= '<button>Download file</button> </form>';
+        $template .= '<button class="btn btn-secondary btn-sm rounded-0">Download file(s) <i class="fas fa-file-download"></i> </button> </form>';
         echo $template;
     }
 
