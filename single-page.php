@@ -26,14 +26,10 @@
                         get_code('assets/src/scss/'.$_GET['cat'].'/'.$_GET['page'], 'scss');
                         get_code('assets/src/js/'.$_GET['cat'].'/'.$_GET['page'], 'js');
                     ?>
-                    <!-- These are extra error on get_code function -->
-                    </div>
-                    </div>
-                    <!-- End -->
                 </div>
                 <div class="col-2 py-4">
-                    <div class="side-bar">
-                        <h5 class="mb-4">Download File(s)</h5>
+                    <div class="side-bar download-section">
+                        <h5>Download File(s)</h5>
                         <?php 
                         $files_with_extensions = array(
                             'php' => array(

@@ -88,7 +88,7 @@
         }else{
            // echo $file['location'].'file not exist';
         }
-        echo $print_data;
+        echo $print_data .='</div>';
     }
 
     
@@ -144,7 +144,7 @@
 
     function get_check_box_template( $data_val, $name, $counter ){
         return "
-            <div class='form-group form-check'>
+            <div class='form-group mb-1 form-check'>
                 <input type='checkbox' name=".$data_val." class='form-check-input' id='data-".$counter."'>
                 <label class='form-check-label' for='data-".$counter."'>".$name."</label>
             </div>
@@ -176,7 +176,7 @@
             }
         }
 
-        $template .= '<button class="btn btn-secondary btn-sm rounded-0">Download file(s) <i class="fas fa-file-download"></i> </button> </form>';
+        $template .= '<button class="mt-3 btn btn-secondary btn-sm">Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
         echo $template;
     }
 

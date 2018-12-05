@@ -312,4 +312,11 @@ input[type="checkbox"]:checked:before {
   border-right-style: none;
   border-color: #34395B; }
 
+.download-section h5 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem; }
+.download-section label {
+  font-size: 0.8rem;
+  cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */
