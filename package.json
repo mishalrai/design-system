@@ -1,0 +1,33 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "Design system project help to reuse code  for designer. make a component using html, css and js and reuse on other projects too. \r which is reduce your project time.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishalrai/design-system.git"
+  },
+  "author": "Mishal Rai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mishalrai/design-system/issues"
+  },
+  "homepage": "https://github.com/mishalrai/design-system#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^6.0.7",
+    "webpack": "^4.20.2",
+    "webpack-concat-plugin": "^3.0.0",
+    "webpack-glob": "^2.0.2"
+  }
+}
