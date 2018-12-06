@@ -42,6 +42,7 @@ const scripts = {
 let filesToTranspile = {};
 
 filesToTranspile = getFileLists(scripts, stylesheets);
+
 module.exports = {
 	mode: mode,
     entry: filesToTranspile,
@@ -63,14 +64,13 @@ module.exports = {
     			test: /\.js$/,
     			loader: 'babel-loader',
     			options: {
-    				presets: ['es2015']
+    				presets: ['es2015', '@babel/preset-stage-3']
     			}
     		},
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
-                    // fallback: 'style-loader',
-                    //resolve-url-loader may be chained before sass-loader if necessary
+                    fallback: 'style-loader',
                     use: ['css-loader', 'sass-loader']
                 })
             }
@@ -78,7 +78,6 @@ module.exports = {
     },
 
     plugins: [
-
         new ExtractTextPlugin({
             filename: getPath => getPath('[name]').replace('js', 'css').replace('scss', 'css'),
             allChunks: true,
