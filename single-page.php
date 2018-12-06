@@ -20,6 +20,7 @@
 
         <div class="modal-body">
             <div class="row">
+                
                 <div class="col-10 border-right py-4">
                     <?php 
                         get_code($_GET['cat'].'/'.$_GET['page'], 'php');
@@ -27,6 +28,7 @@
                         get_code('assets/src/js/'.$_GET['cat'].'/'.$_GET['page'], 'js');
                     ?>
                 </div>
+
                 <div class="col-2 py-4">
                     <div class="side-bar download-section">
                         <h5>Download File(s)</h5>
