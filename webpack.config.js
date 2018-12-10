@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ConcatPlugin = require('webpack-concat-plugin');
 const mode = process.env.NODE_ENV || 'development';
+var webpack = require('webpack');
 
 const getFileLists = (...data) => {
     let ret = {};
@@ -64,9 +65,9 @@ module.exports = {
     			test: /\.js$/,
     			loader: 'babel-loader',
     			options: {
-    				presets: ['es2015', '@babel/preset-stage-3']
+    				presets: ['@babel/preset-env']
     			}
-    		},
+    		},  
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
@@ -87,6 +88,30 @@ module.exports = {
             {   from: './assets/src/img/',
                 to: './assets/build/img/' 
             }, 
-        ])
+            {   from: './assets/src/fonts/',
+                to: './assets/build/fonts/' 
+            }, 
+            {   from: './assets/src/svg/',
+                to: './assets/build/svg/' 
+            } 
+        ]),
+
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            Popper: ["popper.js", "default"],
+        }),
+
+        new ConcatPlugin({
+            uglify: false,
+            name: "vendors.css",
+            sourceMap: true,
+            outputPath: './assets/build/css/',
+            fileName: '[name]',
+            filesToConcat: [
+                                'bootstrap//dist/css/bootstrap.css',
+                                './assets/src/vendor/css/prism.css',
+                            ]
+        })
+
     ],
 };

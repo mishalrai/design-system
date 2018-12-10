@@ -1,5 +1,6 @@
-import {config, updateConfig} from './config.js';
-import download from './download.js';
+// import $ from 'jquery';
+import {config, updateConfig} from './config';
+import download from './download';
 
 class designSystemUI{
 
@@ -97,8 +98,9 @@ class designSystemUI{
     }
     
 }
-
+console.log($);
+/* 
 $(document).ready(()=>{
     new designSystemUI();
     new download();
-})
+}) */
