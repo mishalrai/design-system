@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/js/all';
 
 /* internal module import */
 import {config, updateConfig} from './config';
-import download from './download';
+import download from './download';    
 
 class designSystemUI{
          

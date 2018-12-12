@@ -46,16 +46,12 @@ filesToTranspile = getFileLists(scripts, stylesheets);
 console.log(filesToTranspile);
 
 module.exports = {
-	mode: 'development',
     entry: filesToTranspile,
     devtool: 'source-map',
     output: {
         path: __dirname,
         filename: '[name]',
     },
-
-    watch: true,
-
     module: {
     	rules: [
     		{
@@ -64,7 +60,19 @@ module.exports = {
     			options: {
     				presets: ['@babel/preset-env']
     			}
-    		},  
+            },  
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        publicPath: '../img/'
+                    }
+                  }
+                ]
+            },
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
