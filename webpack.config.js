@@ -2,7 +2,7 @@ const glob = require("glob");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ConcatPlugin = require('webpack-concat-plugin');
-const mode = process.env.NODE_ENV || 'development';
+const mode = 'development';
 var webpack = require('webpack');
 
 const getFileLists = (...data) => {
@@ -43,9 +43,10 @@ const scripts = {
 let filesToTranspile = {};
 
 filesToTranspile = getFileLists(scripts, stylesheets);
+console.log(filesToTranspile);
 
 module.exports = {
-	mode: mode,
+	mode: 'development',
     entry: filesToTranspile,
     devtool: 'source-map',
     output: {
@@ -93,21 +94,9 @@ module.exports = {
         ]),
 
         new webpack.ProvidePlugin({
-            $: "jquery",
-            Popper: ["popper.js", "default"],
-        }),
+            $: "jquery"
+        })/* ,
 
-        new ConcatPlugin({
-            uglify: false,
-            name: "vendors.css",
-            sourceMap: true,
-            outputPath: './assets/build/css/',
-            fileName: '[name]',
-            filesToConcat: [
-                                'bootstrap//dist/css/bootstrap.css',
-                                './assets/src/vendor/css/prism.css',
-                            ]
-        }),
         new ConcatPlugin({
             uglify: false,
             name: "vendors.js",
@@ -120,7 +109,7 @@ module.exports = {
                                 './assets/src/js/vendor/clipboard.min.js',
                                 './assets/src/js/vendor/fontAwesome.js',
                             ]
-        })
+        }) */
 
     ],
 };
