@@ -2,13 +2,16 @@
 import {config, updateConfig} from './config';
 import download from './download';
 
-class designSystemUI{
 
+class designSystemUI{
+         
     constructor(){
         this.toggleSideBar();
         this.copyToClipboard();
         this.downloadFiles();
         this.toggleMenu();
+
+        console.log($(document), 'our document');
     }
 
     toggleMenu(){
@@ -98,9 +101,8 @@ class designSystemUI{
     }
     
 }
-console.log($);
-/* 
+
 $(document).ready(()=>{
     new designSystemUI();
     new download();
-}) */
+})

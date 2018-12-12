@@ -53,10 +53,6 @@ module.exports = {
         filename: '[name]',
     },
 
-    externals: {
-        jquery: 'jQuery',
-    },
-    
     watch: true,
 
     module: {
@@ -110,6 +106,19 @@ module.exports = {
             filesToConcat: [
                                 'bootstrap//dist/css/bootstrap.css',
                                 './assets/src/vendor/css/prism.css',
+                            ]
+        }),
+        new ConcatPlugin({
+            uglify: false,
+            name: "vendors.js",
+            sourceMap: true,
+            outputPath: './assets/build/js/',
+            fileName: '[name]',
+            filesToConcat: [
+                                'bootstrap//dist/js/bootstrap.js',
+                                './assets/src/js/vendor/prism.js',
+                                './assets/src/js/vendor/clipboard.min.js',
+                                './assets/src/js/vendor/fontAwesome.js',
                             ]
         })
 

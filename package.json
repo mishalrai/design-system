@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/mishalrai/design-system#readme",
   "dependencies": {
-    "@babel/preset-stage-3": "^7.0.0",
-    "babel-core": "^7.0.0-0",
-    "babelify": "^10.0.0",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1"
+  },
+  "devDependencies": {
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -27,17 +29,13 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.23.1",
     "webpack-concat-plugin": "^3.0.0",
-    "webpack-glob": "^2.0.2"
-  },
-  "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
-    "bootstrap": "^4.1.3",
-    "jquery": "^3.3.1",
-    "popper": "^1.0.1",
-    "webpack": "^4.27.1"
+    "babel-core": "^7.0.0-0",
+    "babelify": "^10.0.0",
+    "webpack": "^4.27.1",
+    "webpack-glob": "^2.0.2"
   }
 }
