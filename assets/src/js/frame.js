@@ -1,13 +1,17 @@
-import {config, updateConfig} from './config.js';
-import download from './download.js';
+// import $ from 'jquery';
+import {config, updateConfig} from './config';
+import download from './download';
+
 
 class designSystemUI{
-
+         
     constructor(){
         this.toggleSideBar();
         this.copyToClipboard();
         this.downloadFiles();
         this.toggleMenu();
+
+        console.log($(document), 'our document');
     }
 
     toggleMenu(){

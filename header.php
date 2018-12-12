@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="stylesheet" href="assets/build/css/vendor.css">
+        <link rel="stylesheet" href="assets/build/css/vendors.css">
         <link rel="stylesheet" href="assets/build/css/main.css">
         <script defer src="assets/src/js/vendor/js.cookie.min.js"></script>
     </head>
