@@ -1,7 +1,12 @@
-// import $ from 'jquery';
-import {config, updateConfig} from './config';
-import download from './download';
+/* vendor module import */
+import  'prismjs';
+import 'bootstrap/js/dist/modal';
+import 'bootstrap/js/dist/tab';
+import '@fortawesome/fontawesome-free/js/all';
 
+/* internal module import */
+import {config, updateConfig} from './config';
+import download from './download';    
 
 class designSystemUI{
          
@@ -10,8 +15,6 @@ class designSystemUI{
         this.copyToClipboard();
         this.downloadFiles();
         this.toggleMenu();
-
-        console.log($(document), 'our document');
     }
 
     toggleMenu(){
@@ -38,7 +41,6 @@ class designSystemUI{
                     .slideUp();
         })
     }
-
 
     toggleSideBar(){
         if(config().isSideMenuOpened)
@@ -67,7 +69,6 @@ class designSystemUI{
                     console.log(error);
                 }
             })
-            
         })
         
     }

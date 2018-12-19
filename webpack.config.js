@@ -2,7 +2,7 @@ const glob = require("glob");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ConcatPlugin = require('webpack-concat-plugin');
-const mode = process.env.NODE_ENV || 'development';
+const mode = 'development';
 var webpack = require('webpack');
 
 const getFileLists = (...data) => {
@@ -43,18 +43,15 @@ const scripts = {
 let filesToTranspile = {};
 
 filesToTranspile = getFileLists(scripts, stylesheets);
+console.log(filesToTranspile);
 
 module.exports = {
-	mode: mode,
     entry: filesToTranspile,
     devtool: 'source-map',
     output: {
         path: __dirname,
         filename: '[name]',
     },
-
-    watch: true,
-
     module: {
     	rules: [
     		{
@@ -63,7 +60,20 @@ module.exports = {
     			options: {
     				presets: ['@babel/preset-env']
     			}
-    		},  
+            },  
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        useRelativePath: true,
+                        publicPath: '../img/'
+                    }
+                  }
+                ]
+            },
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
@@ -93,12 +103,12 @@ module.exports = {
         ]),
 
         new webpack.ProvidePlugin({
-            $: "jquery",
-            Popper: ["popper.js", "default"],
-        }),
+            $: "jquery"
+        })/* ,
 
         new ConcatPlugin({
             uglify: false,
+<<<<<<< HEAD
             name: "vendors.css",
             sourceMap: true,
             outputPath: './assets/build/css/',
@@ -110,6 +120,8 @@ module.exports = {
         })
         /* new ConcatPlugin({
             uglify: false,
+=======
+>>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
             name: "vendors.js",
             sourceMap: true,
             outputPath: './assets/build/js/',
@@ -119,8 +131,13 @@ module.exports = {
                                 './assets/src/js/vendor/prism.js',
                                 './assets/src/js/vendor/clipboard.min.js',
                                 './assets/src/js/vendor/fontAwesome.js',
+<<<<<<< HEAD
                             ] 
         })*/
+=======
+                            ]
+        }) */
+>>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
 
     ],
 };
