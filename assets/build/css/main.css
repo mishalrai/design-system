@@ -1,3 +1,16 @@
+body {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  width: calc( 100% - 90px); }
+  body ::-webkit-input-placeholder {
+    color: gray; }
+  body :-ms-input-placeholder {
+    color: gray; }
+  body ::-ms-input-placeholder {
+    color: gray; }
+  body ::placeholder {
+    color: gray; }
+
 /* BASIC COLOR */
 /* FONTS */
 /* FONT WEIGHT */

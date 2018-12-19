@@ -1,2 +1,11 @@
+body{
+    transform: translate(0);
+    width: calc( 100% - 90px );
+
+    ::placeholder {
+        color: gray;
+    }
+}
+
 @import "common";
 @import "frame/master-frame";

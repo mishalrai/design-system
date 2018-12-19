@@ -68,7 +68,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader', 'sass-loader', 'postcss-loader']
                 })
             }
     	],
@@ -107,8 +107,8 @@ module.exports = {
                                 'bootstrap//dist/css/bootstrap.css',
                                 './assets/src/vendor/css/prism.css',
                             ]
-        }),
-        new ConcatPlugin({
+        })
+        /* new ConcatPlugin({
             uglify: false,
             name: "vendors.js",
             sourceMap: true,
@@ -119,8 +119,8 @@ module.exports = {
                                 './assets/src/js/vendor/prism.js',
                                 './assets/src/js/vendor/clipboard.min.js',
                                 './assets/src/js/vendor/fontAwesome.js',
-                            ]
-        })
+                            ] 
+        })*/
 
     ],
 };
