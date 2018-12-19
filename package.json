@@ -26,16 +26,10 @@
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
-<<<<<<< HEAD
     "autoprefixer": "^9.4.3",
     "babel-core": "^7.0.0-0",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
-=======
-    "@fortawesome/fontawesome-free": "^5.6.0",
-    "babel-core": "^7.0.0-0",
-    "babel-loader": "^7.1.5",
->>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
     "babelify": "^10.0.0",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.10",
@@ -46,10 +40,7 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
-<<<<<<< HEAD
-=======
     "webpack-cli": "^3.1.2",
->>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
     "webpack-concat-plugin": "^3.0.0",
     "webpack-glob": "^2.0.2"
   }

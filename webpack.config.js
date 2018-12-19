@@ -108,20 +108,6 @@ module.exports = {
 
         new ConcatPlugin({
             uglify: false,
-<<<<<<< HEAD
-            name: "vendors.css",
-            sourceMap: true,
-            outputPath: './assets/build/css/',
-            fileName: '[name]',
-            filesToConcat: [
-                                'bootstrap//dist/css/bootstrap.css',
-                                './assets/src/vendor/css/prism.css',
-                            ]
-        })
-        /* new ConcatPlugin({
-            uglify: false,
-=======
->>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
             name: "vendors.js",
             sourceMap: true,
             outputPath: './assets/build/js/',
@@ -131,13 +117,8 @@ module.exports = {
                                 './assets/src/js/vendor/prism.js',
                                 './assets/src/js/vendor/clipboard.min.js',
                                 './assets/src/js/vendor/fontAwesome.js',
-<<<<<<< HEAD
-                            ] 
-        })*/
-=======
                             ]
         }) */
->>>>>>> b4b9d34bc631aed2d03c6ef6e580117493a494af
 
     ],
 };
