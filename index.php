@@ -29,10 +29,15 @@
                     <code class="language-css rounded-0">
                         html {font-size: 16px; }
                     </code>
-                </pre>   
+                </pre> 
             <?php
-            }else{
-                require 'single-page.php';
+            }else{  require 'single-page.php'; ?>
+                <!-- Get code icon -->
+                <a href="#" class="get-code" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <span class="text">Get code</span> <span class="code-icon"><i class="fas fa-code"></i></span>
+                </a>
+                
+            <?php   
             }
         ?>
     <div>

@@ -3,7 +3,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-// Optional
+/* Optional */
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
@@ -17,10 +17,3 @@
 
 /* prism js */
 @import "~prismjs/themes/prism-okaidia.css";
-
-/* custom files import */
-@import "helpers/master-helpers";
-@import "base/master-base";
-@import "components/master-components";
-@import "layouts/master-layouts";
-@import "pages/master-page";

@@ -1,6 +1,3 @@
-<a href="#" class="get-code" data-toggle="modal" data-target=".bd-example-modal-lg">
-    Get code <span><i class="fas fa-code"></i></span>
-</a>
 
 <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

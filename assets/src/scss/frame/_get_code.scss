@@ -1,6 +1,7 @@
 $get-code-size: 2.5rem;
 $get-code-bg-color: #34395B;
 $get-code-text-color: #fff;
+$get-code-shadow-color: #d1d5e2;
 
 .get-code{
     position: fixed;
@@ -10,11 +11,14 @@ $get-code-text-color: #fff;
     color: $get-code-bg-color;
     font-weight: bold;
     
-    &:hover{
-        color: $get-code-bg-color;
+    .text{
+        transform: translateX(-0.8rem);
+        display: inline-block; 
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
     }
 
-    span{
+    .code-icon{
         display: inline-block;
         width: $get-code-size;
         height: $get-code-size;
@@ -25,7 +29,23 @@ $get-code-text-color: #fff;
         font-size: 0.9rem;
         margin-left: 0.1rem;
         color: $get-code-text-color;
+        box-shadow: 0 0 0 0 #{$get-code-shadow-color};
+        transition: all 0.2s ease-in-out;
     }
+
+    &:hover{
+        text-decoration: none;
+        color: $get-code-bg-color;
+
+        .text{
+            transform: translateX(-0.2rem);  
+            opacity: 1;
+        }
+        .code-icon{
+            box-shadow: 0 0 0 0.3rem #{$get-code-shadow-color};
+        }
+    }
+
 }
 
 pre[class*="language-"]{

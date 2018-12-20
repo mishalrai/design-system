@@ -29,7 +29,7 @@ const getFileLists = (...data) => {
 
 const stylesheets = {
     base: './assets/src/scss/',
-    src: 'main.scss',
+    src: '*.scss',
     dest:'./assets/build/css/',
     'ext': 'css'
 };

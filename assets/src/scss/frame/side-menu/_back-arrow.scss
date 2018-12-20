@@ -2,7 +2,7 @@ $back-arrow-color: #34395B;
 .back-arrow{
     a{
         color: $back-arrow-color;
-        font-size: 1.3rem;
+        font-size: 1rem;
 
         &:hover{
             color: darken($back-arrow-color, 20%);
