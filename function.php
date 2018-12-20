@@ -176,7 +176,7 @@
             }
         }
 
-        $template .= '<button class="mt-3 btn btn-secondary btn-sm">Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
+        $template .= '<button class="mt-3 btn rounded-0 btn-secondary btn-sm">Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
         echo $template;
     }
 

@@ -3,6 +3,7 @@ import  'prismjs';
 import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/tab';
 import '@fortawesome/fontawesome-free/js/all';
+import 'jquery.nicescroll';
 
 /* internal module import */
 import {config, updateConfig} from './config';
@@ -15,6 +16,15 @@ class designSystemUI{
         this.copyToClipboard();
         this.downloadFiles();
         this.toggleMenu();
+        this.niceScroll();
+    }
+
+    niceScroll(){
+        $('.main-navigation').niceScroll({
+            cursorborderradius: 0,
+            cursorcolor: '#5b628e',
+            cursorborder: 'none'
+        });
     }
 
     toggleMenu(){

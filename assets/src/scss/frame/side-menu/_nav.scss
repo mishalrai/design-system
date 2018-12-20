@@ -4,6 +4,8 @@ $menu-text-color : $color_white;
 .main-navigation{
     padding: 1rem 0 0 0;
     list-style: none;
+    max-height: calc( 100vh - 65.7px);
+    overflow: auto;
     
     ul{
         padding: 0;
@@ -12,9 +14,14 @@ $menu-text-color : $color_white;
         ul{
             display: none;
 
-            li.active{
+            li{
+                &.active{
+                    a{
+                        background-color: $active-menu-color;
+                    }
+                }
                 a{
-                    background-color: $active-menu-color;
+                    font-size: 0.75rem;
                 }
             }
         }

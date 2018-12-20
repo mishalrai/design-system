@@ -1,4 +1,4 @@
-$get-code-size: 3.3rem;
+$get-code-size: 2.5rem;
 $get-code-bg-color: #34395B;
 $get-code-text-color: #fff;
 
@@ -6,6 +6,7 @@ $get-code-text-color: #fff;
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
+    font-size: 0.9rem;
     color: $get-code-bg-color;
     font-weight: bold;
     
@@ -21,8 +22,12 @@ $get-code-text-color: #fff;
         border-radius: 50%;
         line-height: $get-code-size;
         text-align: center;
-        font-size: 1.3rem;
-        margin-left: 0.2rem;
+        font-size: 0.9rem;
+        margin-left: 0.1rem;
         color: $get-code-text-color;
     }
+}
+
+pre[class*="language-"]{
+    border-radius: 0 !important;
 }
