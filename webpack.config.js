@@ -43,8 +43,6 @@ const scripts = {
 let filesToTranspile = {};
 
 filesToTranspile = getFileLists(scripts, stylesheets);
-console.log(filesToTranspile);
-
 module.exports = {
     entry: filesToTranspile,
     devtool: 'source-map',
@@ -78,7 +76,17 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader', 'postcss-loader']
+                    use: [  
+                            {
+                                loader: 'css-loader',
+                                options: {sourceMap: true},
+                            },
+                            {
+                                loader: 'sass-loader',
+                                options: {sourceMap: true},
+                            }, 
+                            'postcss-loader'
+                        ]
                 })
             }
     	],
@@ -104,21 +112,6 @@ module.exports = {
 
         new webpack.ProvidePlugin({
             $: "jquery"
-        })/* ,
-
-        new ConcatPlugin({
-            uglify: false,
-            name: "vendors.js",
-            sourceMap: true,
-            outputPath: './assets/build/js/',
-            fileName: '[name]',
-            filesToConcat: [
-                                'bootstrap//dist/js/bootstrap.js',
-                                './assets/src/js/vendor/prism.js',
-                                './assets/src/js/vendor/clipboard.min.js',
-                                './assets/src/js/vendor/fontAwesome.js',
-                            ]
-        }) */
-
+        })
     ],
 };
