@@ -1,6 +1,6 @@
 <?php
 
-    require_once('handle_htaccess_file.php');
+    require_once('generate_htaccess_file.php');
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
