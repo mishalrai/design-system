@@ -1,10 +1,33 @@
 <?php
+    function get_project_base(){
+        $uri = explode( '?', $_SERVER[ 'REQUEST_URI' ] );
+        return $uri[0];
+    }
+
+    function create_htaccess(){
+        $file = fopen( "api/.htaccess", "w" );
+        $rules = "RewriteEngine On\nRewriteBase " .get_project_base() . "api/\nRewriteRule ^json/([-A-Za-z0-9]+)$ index.php?url=$1 [L]\nRewriteRule ^json/([-A-Za-z0-9]+)/([0-9]+)$ index.php?url=$1&id=$2 [L]";
+        fwrite($file, $rules);
+        fclose($file);    
+    }
+    
+    if( !file_exists( 'api/.htaccess' ) ){
+        create_htaccess();
+    }
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
         $_POST['data']['function']($files); 
     }
 
+    function get_base_url(){
+        return sprintf(
+            "%s://%s%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['SERVER_NAME'],
+            get_project_base()
+          );
+    }
     function get_home_url(){
         echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };

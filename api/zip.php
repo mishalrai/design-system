@@ -237,7 +237,8 @@ class zipfile
         if (is_file($file)) //directory check
         {
             $data = implode("",file($file));
-                    $new_file = $this->prefix_name.end(explode('/', $file));
+            $exploded = explode('/', $file);
+                    $new_file = $this->prefix_name.end( $exploded );
                     $this->addFile($data, $new_file);
                 }
         }

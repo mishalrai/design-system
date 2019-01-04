@@ -14,6 +14,11 @@
         <link rel="stylesheet" href="assets/build/css/vendors.css">
         <link rel="stylesheet" href="assets/build/css/main.css">
         <script defer src="assets/src/js/vendor/js.cookie.min.js"></script>
+        <script>
+            var LOCAL = {
+                "base_url" : "<?php echo get_base_url(); ?>"
+            };
+        </script>
     </head>
 
     <body class="side-menu-close">

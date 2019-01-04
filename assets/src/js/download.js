@@ -4,11 +4,10 @@ export default class Download{
     constructor() {
 
         this.form = '#download-file';
-        this.url = 'http://localhost/design-system/api/json/download';
+        this.url = LOCAL.base_url + 'api/json/download';
         this.sampleData = 'user=person&pwd=password&organization=place&requiredkey=key';
         
         this.handleSubmit();
-
     }
 
     handleSubmit(){

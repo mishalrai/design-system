@@ -1,5 +1,4 @@
 <?php
-
 require('zip.php');
 
 class Download extends Rest_Controller{
@@ -13,7 +12,6 @@ class Download extends Rest_Controller{
 	}
 
 	public function download_files(){
-		
 		$data = json_decode($_POST['data']);
 		$zip_file = 'download.zip'; // name for downloaded zip file
 		$ziper = new zipfile();
