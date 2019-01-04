@@ -1,6 +1,6 @@
 <?php
 
-require_once('../zip.php');
+require('zip.php');
 
 class Download extends Rest_Controller{
 
@@ -22,7 +22,7 @@ class Download extends Rest_Controller{
 		$ziper->output($zip_file); 
 		echo $ziper->forceDownload($zip_file);
 		@unlink($zip_file);
-	
+		
 	}
 }
 
