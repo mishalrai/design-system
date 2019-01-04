@@ -1,5 +1,4 @@
 RewriteEngine On
 RewriteBase /design-system/api/
-
 RewriteRule ^json/([-A-Za-z0-9]+)$ index.php?url=$1 [L]
 RewriteRule ^json/([-A-Za-z0-9]+)/([0-9]+)$ index.php?url=$1&id=$2 [L]

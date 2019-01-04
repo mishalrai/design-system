@@ -1,4 +1,15 @@
 <?php
+    function create_htaccess(){
+        $uri = explode( '?', $_SERVER[ 'REQUEST_URI' ] );
+        $file = fopen( "api/.htaccess", "w" );
+        $rules = "RewriteEngine On\nRewriteBase " . $uri[0] . "api/\nRewriteRule ^json/([-A-Za-z0-9]+)$ index.php?url=$1 [L]\nRewriteRule ^json/([-A-Za-z0-9]+)/([0-9]+)$ index.php?url=$1&id=$2 [L]";
+        fwrite($file, $rules);
+        fclose($file);    
+    }
+    
+    if( !file_exists( 'api/.htaccess' ) ){
+        create_htaccess();
+    }
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
