@@ -35,14 +35,24 @@ class designSystemUI{
                 .slideDown()
                 .parent()
                 .addClass(className);
+            
+            $('ul.menu li ul a').on( 'click', e=>{
+                e.preventDefault();
+
+                let $ele = $(e.target),
+                    redirectLink = $ele.attr('href'),
+                    eleIndex = $ele.parents('ul').prev().attr('data-index');   
+                    updateConfig('selectedChild', eleIndex );
+                    window.location =redirectLink;
+            })
 
             $(selector).on( 'click', e=>{
                 e.preventDefault();
-                updateConfig('selectedChild', $(e.target).attr('data-index') );
+                // updateConfig('selectedChild', $(e.target).attr('data-index') );
                 
                 $(e.target)
                     .next()
-                    .slideDown()
+                    .slideToggle()
                     .parent()
                     .addClass(className)
                     .siblings()
