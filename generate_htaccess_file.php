@@ -17,5 +17,5 @@
     }
     
     if( !file_exists( 'api/.htaccess' ) || file_exists( 'api/.htaccess' ) && $_SESSION['project_base'] !== get_project_base() ){
-        create_htaccess();
+        create_htaccess();  
     }
