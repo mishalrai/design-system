@@ -16,6 +16,6 @@
         fclose($file);    
     }
     
-    if( !file_exists( 'api/.htaccess' ) || file_exists( 'api/.htaccess' ) && $_SESSION['project_base'] !== get_project_base() ){
+    if( !file_exists( 'api/.htaccess' ) || isset($_SESSION['project_base']) && file_exists( 'api/.htaccess' ) && $_SESSION['project_base'] !== get_project_base() ){
         create_htaccess();  
     }
