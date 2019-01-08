@@ -98,7 +98,7 @@ class designSystemUI{
 
         if(pres !== null){
             pres.each( function(i, ele){
-                $(ele).prepend(
+                $(ele).wrap('<div class="pre-wrapper"></div>').before(
                     `<div class="copy" style="cursor:pointer;">copy</div>`
                 )
             })
