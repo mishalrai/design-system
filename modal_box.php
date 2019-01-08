@@ -19,7 +19,7 @@
                         ?>
                     </div>
 
-                    <div class="col-2 py-5 bg-light">
+                    <div class="col-2 py-5 bg-light download-block">
                         <div class="side-bar download-section">
                             <h5>Download File(s)</h5>
                             <?php 

@@ -1,0 +1,14 @@
+.vh-100{
+    height: 100vh;
+}
+
+.frame-btn-color{
+    background-color: $frame-color-primary;
+    transition: all 0.3s ease-in-out;
+    color: $frame-color-white;
+    
+    &:hover{
+        background-color: darken( $frame-color-primary, 5% );
+        color: $frame-color-white;
+    }
+}
