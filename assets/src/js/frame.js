@@ -17,6 +17,23 @@ class designSystemUI{
         this.downloadFiles();
         this.toggleMenu();
         this.niceScroll();
+        this.modalBox();
+        this.openModalBox();
+    }
+
+    openModalBox(){
+        let selector = location.hash ;
+        console.log(selector);
+        if( selector.length){
+            console.log('if');
+            $(selector).modal('show');
+        }
+    }
+
+    modalBox(){
+        $('#get-code').on('show.bs.modal', function (e) {
+            location.hash = '#get-code';
+          })
     }
 
     niceScroll(){

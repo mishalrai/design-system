@@ -5,6 +5,10 @@
 
 .modal {
     padding-left: 0!important; 
+
+    .modal-body{
+        padding: 0;
+    }
 }
 .modal-dialog {
     margin: 10px auto;

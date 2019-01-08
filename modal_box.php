@@ -1,19 +1,17 @@
 
-<div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div id="get-code" class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg m-0">
         <div class="modal-content rounded-0 border-0">
+        
             
-            <div class="modal-header p-4">
-                <h5 class="modal-title" id="exampleModalLabel">Let's Resuse CODE</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
             <div class="modal-body">
-                <div class="row">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+
+                <div class="row vh-100">
                     
-                    <div class="col-10 border-right py-4">
+                    <div class="col-10 p-5">
                         <?php 
                             get_code($_GET['cat'].'/'.$_GET['page'], 'php');
                             get_code('assets/src/scss/'.$_GET['cat'].'/'.$_GET['page'], 'scss');
@@ -21,7 +19,7 @@
                         ?>
                     </div>
 
-                    <div class="col-2 py-4">
+                    <div class="col-2 py-5 bg-light">
                         <div class="side-bar download-section">
                             <h5>Download File(s)</h5>
                             <?php 

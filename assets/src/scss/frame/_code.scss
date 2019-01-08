@@ -4,11 +4,12 @@
     .copy{
         cursor: pointer;
         position: absolute;
-        bottom: calc(100% + 5px);
+        bottom: calc(100% + 5px); 
         right: 0;
         font-size: 0.8rem;
         border: 1px solid #000;
         color: #000;
         padding: 0 0.3rem 0.2rem;
     }
+
 }

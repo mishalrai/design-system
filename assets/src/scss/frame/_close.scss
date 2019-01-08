@@ -1,0 +1,35 @@
+$close-button-size: 2.5rem;
+$close-bg-color: #EB1524;
+$close-shadow-color: lighten($close-bg-color, 30%);
+button.close{
+    position: fixed;
+    bottom: 1.4rem;
+    left: 50%;
+    z-index: 10;
+    width: $close-button-size;
+    height: $close-button-size;
+    padding: 0 !important;
+    background: $close-bg-color;
+    color: $color_white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    // box-shadow: 0 0 0 0 #{ $close-shadow-color };
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+        opacity: 0.8 !important;
+        // box-shadow: 0 0 0 0.3rem #{ $close-shadow-color };
+    }
+
+    &:focus{
+        outline: none;
+    }
+
+    span{
+        line-height: 0;
+    }
+
+    &:hover{
+        color: $color_white;
+    }
+}
