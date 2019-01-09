@@ -5,9 +5,18 @@ export default class Download{
 
         this.form = '#download-file';
         this.url = LOCAL.base_url + 'api/json/download';
-        this.sampleData = 'user=person&pwd=password&organization=place&requiredkey=key';
-        
+        this.enableDownloadBtn();
         this.handleSubmit();
+    }
+
+    enableDownloadBtn(){
+        $('input[type="checkbox"]', this.form).on('click', ()=>{
+            if( $('input[type="checkbox"]:checked', this.form).length )
+                $( 'button', this.form).prop('disabled', false);
+            else
+                $( 'button', this.form).prop('disabled', true);
+            
+        })
     }
 
     handleSubmit(){
