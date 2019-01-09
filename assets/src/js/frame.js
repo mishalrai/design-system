@@ -23,7 +23,6 @@ class designSystemUI{
 
     openModalBox(){
         let selector = location.hash ;
-        console.log(selector);
         if( selector.length){
             console.log('if');
             $(selector).modal('show');
@@ -33,7 +32,11 @@ class designSystemUI{
     modalBox(){
         $('#get-code').on('show.bs.modal', function (e) {
             location.hash = '#get-code';
-          })
+        })
+        
+        $('#get-code').on('hide.bs.modal', function (e) {
+            location.hash = '';
+        })
     }
 
     niceScroll(){
