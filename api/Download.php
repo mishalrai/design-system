@@ -20,8 +20,8 @@ class Download extends Rest_Controller{
 		$ziper->output($zip_file); 
 		echo $ziper->forceDownload($zip_file);
 		@unlink($zip_file);
-		
 	}
+	
 }
 
 $download = new Download();
