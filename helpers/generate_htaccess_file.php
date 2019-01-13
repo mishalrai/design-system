@@ -1,7 +1,5 @@
 <?php
     
-    session_start();
-    
     function get_project_base(){
         $uri = explode( '?', $_SERVER[ 'REQUEST_URI' ] );
         return $uri[0];

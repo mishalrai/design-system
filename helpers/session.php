@@ -1,7 +1,6 @@
 <?php
-if ( !class_exists( 'SmartSession' ) ):
 
-class SessionHe{
+class Session{
 
    /**
    * Class constructor starts the session
@@ -22,6 +21,16 @@ class SessionHe{
     session_start();
     return $this;
   }
+
+  /**
+   * Check session isset
+   * @access public
+   * @return boolean 
+   */
+
+  public function isset( $name ){
+    return isset( $_SESSION[$name] );
+  }
   
   /**
    * set 
@@ -38,6 +47,7 @@ class SessionHe{
     $_SESSION[$name] = $value;
     return $this;
   }
+  
   /**
    * get 
    * 
@@ -58,6 +68,8 @@ class SessionHe{
     else
       return ($def !== false)? $def : false;
   }
+
+
   /**
    * del 
    * 
@@ -162,9 +174,9 @@ class SessionHe{
    * 
    * @return mixed
    */
-  function __get($name,$def = false){
+  /* function __get($name,$def = false){
     $this->get($name,$value);
-  }
+  } */
 
   /**
    * __toString 
@@ -179,4 +191,3 @@ class SessionHe{
     return '<pre>'.print_r($_SESSION,true).'</pre>';
   }
 }
-endif;
