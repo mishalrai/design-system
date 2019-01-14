@@ -37,7 +37,7 @@
                                     'base_url' => 'assets/src/js/'.$_GET['cat'].'/'
                                 ));
 
-                                get_downloadable_file_lists($files_with_extensions, $_GET['page']);
+                                echo get_downloadable_file_lists($files_with_extensions, $_GET['page']);
                             ?>
                         </div>
                     </div>

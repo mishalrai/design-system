@@ -8,12 +8,14 @@ class Rest_Controller{
 		$method = strtolower( $_SERVER['REQUEST_METHOD'] );
 		$id = isset( $_GET[ 'id' ] ) && !empty( $_GET[ 'id' ] ) ? true: false;		
 		$key = false;
+
 		foreach( $this->routes as $i => $r ){
 			// method // id // url
 			if( $r[ 'method' ] == $method && $r[ 'url' ] == $url && $id === $r[ 'id' ] ){
 				$key = $i;
 			}
 		}
+
 		if( $key !== false && isset($this->routes[$key] )){
 			$route = $this->routes[ $key ];
 			if( $route['id'] ){

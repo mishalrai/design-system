@@ -1,6 +1,5 @@
 <?php
-
-    require_once('generate_htaccess_file.php');
+    require_once('helpers/generate_htaccess_file.php'); /* For Generate htaccess */
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
@@ -15,41 +14,40 @@
             get_project_base()
           );
     }
+
     function get_home_url(){
         echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };
 
-    function nav_menu(){
+
+    function get_files_array(){
+        $return_arr = array();
         $folders = ['components', 'layouts', 'pages'];
-        $counter = 0;
-        $menu = "<ul class='menu'>";
+        foreach( $folders as $folder):
+            if( file_exists($folder) && sizeof(scandir($folder)) > 2 ):
+                
+                $temp_arr = array( "name" => $folder, "children" => array() );
 
-        foreach( $folders as $folder){
-            if( file_exists($folder) && sizeof(scandir($folder)) > 2 ){ 
-                $menu .= "<li><a href='#' data-index='".$counter."'>".$folder."<span class='icon'><i class='fa fa-angle-down'></i></span></a>";
-                    if(is_dir($folder)){
-                        $menu .= "<ul>";
-                            foreach( scandir($folder) as $file_name){
-                                $class_name = '';
-                                
-                                if(isset($_GET['page']))
-                                    $class_name = basename($file_name,'.php') === $_GET['page'] ? 'active': '';
+                if( is_dir($folder) ) :
+                    foreach( scandir($folder) as $file_name):
+                        if ( !in_array($file_name, array(".","..")) ):
+                            array_push(  $temp_arr['children'], array( 
+                                    "name"=> $file_name, 
+                                    "children" => array() 
+                            ));
+                        endif;
 
-                                if (!in_array($file_name, array(".","..")))
-                                    $menu .= "<li class=".$class_name."><a href='?cat=".$folder."&page=".basename($file_name,'.php')."'>".str_replace("-", " ",basename($file_name, '.php') )."</a></li>";
-                                
-                            }
-                        $menu .= "</ul>";
-                    }
-                $menu .= "</li>";
-                $counter++;
-            }
-        }
-        $menu .= '</ul>';
-        echo $menu;
-    };
+                    endforeach;
+                endif;
 
-    
+                array_push( $return_arr, $temp_arr );
+            endif;
+        endforeach;
+
+        return $return_arr;
+    }
+
+
     function get_tab_code( $files, $type ){
       $files_locations = array();
       $tab = '<div class="my-5">';
@@ -185,12 +183,12 @@
                 }
             }
         }
-
-        $template .= '<button class="mt-3 btn rounded-0 frame-btn-color btn-sm" disabled>Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
-        echo $template;
+        return $template .= '<button class="mt-3 btn rounded-0 frame-btn-color btn-sm" disabled>Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
+        
     }
 
-    function download_files( $files ){   
+
+/*     function download_files( $files ){   
         $zip = new ZipArchive;
         $zipname = 'files.zip';
         if ( $zip->open($zipname, ZipArchive::CREATE)  !== true ){
@@ -210,4 +208,4 @@
             readfile($zipname);
             unlink($zip);
         }
-    }
+    } */

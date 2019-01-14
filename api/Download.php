@@ -8,7 +8,16 @@ class Download extends Rest_Controller{
 			'method'   => 'post',
 			'callback' => array( $this, 'download_files' )
 		));
+
+		$this->register_route('navigation/:id', array(
+			'method' => 'get',
+			'callback' => array( $this, 'test')
+		));
 		parent::__construct();
+	}
+
+	function test( $id ){
+		$this->response( 200, array( 'tes' => $id ) );
 	}
 
 	public function download_files(){
@@ -20,8 +29,8 @@ class Download extends Rest_Controller{
 		$ziper->output($zip_file); 
 		echo $ziper->forceDownload($zip_file);
 		@unlink($zip_file);
-		
 	}
+	
 }
 
 $download = new Download();

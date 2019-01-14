@@ -2,7 +2,6 @@
 export default class Download{
 
     constructor() {
-
         this.form = '#download-file';
         this.url = LOCAL.base_url + 'api/json/download';
         this.enableDownloadBtn();
