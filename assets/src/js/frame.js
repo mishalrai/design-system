@@ -27,7 +27,7 @@ class designSystemUI{
             console.log('if');
             $(selector).modal('show');
         }
-    }
+    }   
 
     modalBox(){
         $('#get-code').on('show.bs.modal', function (e) {

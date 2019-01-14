@@ -10,6 +10,6 @@ export const makePayload = (ele) => {
             extraInfo[name] = $(e).val();
         }
     })
-    
+        
     return obj;
 }

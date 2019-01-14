@@ -54,7 +54,8 @@ module.exports = {
     	rules: [
     		{
     			test: /\.js$/,
-    			loader: 'babel-loader',
+                loader: 'babel-loader',
+                exclude: /node_modules/,
     			options: {
     				presets: ['@babel/preset-env']
     			}
@@ -74,6 +75,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [  
