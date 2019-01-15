@@ -5,17 +5,19 @@ import 'bootstrap/js/dist/tab';
 import '@fortawesome/fontawesome-free/js/all';
 import 'jquery.nicescroll';
 
+/* Costom components */
+import './frame/navResync';
+import './frame/download';      
+import './frame/nav';       
+
 /* internal module import */
 import {config, updateConfig} from './config';
-import download from './download';    
 
 class designSystemUI{
          
     constructor(){
         this.toggleSideBar();
         this.copyToClipboard();
-        this.downloadFiles();
-        this.toggleMenu();
         this.niceScroll();
         this.modalBox();
         this.openModalBox();
@@ -47,41 +49,6 @@ class designSystemUI{
         });
     }
 
-    toggleMenu(){
-        const selector = 'ul.menu > li > a',
-              className = 'open';
-
-            $('ul.menu > li').eq(config().selectedChild).find('ul')
-                .slideDown()
-                .parent()
-                .addClass(className);
-            
-            $('ul.menu li ul a').on( 'click', e=>{
-                e.preventDefault();
-
-                let $ele = $(e.target),
-                    redirectLink = $ele.attr('href'),
-                    eleIndex = $ele.parents('ul').prev().attr('data-index');   
-                    updateConfig('selectedChild', eleIndex );
-                    window.location =redirectLink;
-            })
-
-            $(selector).on( 'click', e=>{
-                e.preventDefault();
-                // updateConfig('selectedChild', $(e.target).attr('data-index') );
-                
-                $(e.target)
-                    .next()
-                    .slideToggle()
-                    .parent()
-                    .addClass(className)
-                    .siblings()
-                    .removeClass(className)
-                    .find('ul')
-                    .slideUp();
-        })
-    }
-
     toggleSideBar(){
         if(config().isSideMenuOpened)
             $('body').removeClass("side-menu-close");
@@ -93,24 +60,6 @@ class designSystemUI{
             updateConfig('isSideMenuOpened', !config().isSideMenuOpened );
             $('body').toggleClass("side-menu-close");
         })
-    }
-
-    downloadFiles(){
-        $(document).on('click', '.download-files', e => {
-            $.ajax({
-                url: 'function.php',
-                type: 'POST',
-                data: { data : {function : 'download_files', files: data } },
-                dataType: 'json',
-                success: data =>{
-                    console.log(data);
-                },
-                error: error=>{
-                    console.log(error);
-                }
-            })
-        })
-        
     }
 
     copyToClipboard() {
@@ -143,7 +92,7 @@ class designSystemUI{
     
 }
 
-$(document).ready(()=>{
+
+$(document).ready( ()=>{
     new designSystemUI();
-    new download();
 })

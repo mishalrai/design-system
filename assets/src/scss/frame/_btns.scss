@@ -1,0 +1,14 @@
+.btn-sync{
+    background: #ddd;
+    font-size: 0.8rem;
+    display: inline-block;
+    line-height: 2.1;
+    text-align: center;
+    border-radius: 2rem;
+    color: #5961a0; 
+    width: 108px; 
+    
+    &:hover{
+        text-decoration: none;
+    }
+}

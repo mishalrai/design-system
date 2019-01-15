@@ -1,5 +1,4 @@
 <?php
-    require_once 'helpers/Navigation.php'; 
     use helper\Navigation ; 
     $navigation = new Navigation();  
     $navigation->get_nav();    

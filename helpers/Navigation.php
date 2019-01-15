@@ -1,11 +1,7 @@
 <?php
 
     namespace helper;
-    require_once 'Session.php';
-    require_once 'constant.php';
-    require_once 'index.php';
-
-    class Navigation extends Session {
+    class Navigation extends Session { 
 
         public $name = NAVIGATION_COOKIE_NAME;
         public $folder_to_scan = FOLDER_TO_SCAN;

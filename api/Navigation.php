@@ -1,25 +1,31 @@
-<?php 
-echo "3";
-    //  require_once 'Rest_Controller.php';
-    // require_once '../helpers/Navigation.php';
-    // use helper\Navigation as Navigation_Helper;
+<?php   
+    use helper\Navigation as Navigation_Helper;
 
     class Navigation extends Rest_Controller{
-        // public $navigation_helper = new Navigation_Helper();
-
+        
+        protected $navigation_helper = null;
         function __construct(){
-            $this->register_route('navigation', array(
-                'method' => 'post',
+            $this->register_route('navigation/:active', array(
+                'method' => 'get',
                 'callback' => array( $this, 'generate')
             ));
 
-           
+            $this->register_route('navigation', array(
+                'method' => 'get',
+                'callback' => array( $this, 'generate')
+            ));
 
-            parent::__construct();
+            $this->navigation_helper = new Navigation_Helper();
         }
 
-        public function generate(){
-            echo $navigation_helper->generate();
+        public function generate( $name = '' ){
+            $_GET[ 'page'] = $name;
+            $data = $this->navigation_helper->re_generate();
+            $this->response( 200, array(
+                'data' => $data,
+                'status' => 200,
+                'message' => 'successfully synced'
+            ));
         }
         
     }

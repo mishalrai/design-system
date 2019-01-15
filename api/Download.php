@@ -4,16 +4,16 @@ require('zip.php');
 class Download extends Rest_Controller{
 
 	public function __construct(){
+		parent::__construct();
 		$this->register_route( 'download', array(
 			'method'   => 'post',
 			'callback' => array( $this, 'download_files' )
 		));
 
-		$this->register_route('navigation/:id', array(
+		$this->register_route('download/:id', array(
 			'method' => 'get',
 			'callback' => array( $this, 'test')
-		));
-		parent::__construct();
+		)); 
 	}
 
 	function test( $id ){

@@ -1,5 +1,9 @@
 <?php
-    require_once('helpers/generate_htaccess_file.php'); /* For Generate htaccess */
+    require_once 'constant.php'; 
+    require_once 'helpers/Session.php'; 
+    require_once 'helpers/generate_htaccess_file.php';    
+    require_once 'helpers/Navigation.php';  
+
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
@@ -186,26 +190,3 @@
         return $template .= '<button class="mt-3 btn rounded-0 frame-btn-color btn-sm" disabled>Download file(s) <i class="ml-1 far fa-arrow-alt-circle-down"></i> </button> </form>';
         
     }
-
-
-/*     function download_files( $files ){   
-        $zip = new ZipArchive;
-        $zipname = 'files.zip';
-        if ( $zip->open($zipname, ZipArchive::CREATE)  !== true ){
-            echo "sorry zip creation filed at this time ";
-        };
-
-        foreach ($files as $file) {
-            $zip->addFile($file);
-        }
-        
-        $zip->close();
-
-        if (file_exists($zipname)){
-            header('Content-Type: application/zip');
-            header('Content-disposition: attachment; filename='.$zipname);
-            header('Content-Length: ' . filesize($zipname));
-            readfile($zipname);
-            unlink($zip);
-        }
-    } */

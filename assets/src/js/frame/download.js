@@ -1,9 +1,11 @@
 
-export default class Download{
+import {routes} from './constants';
+
+class Download{
 
     constructor() {
         this.form = '#download-file';
-        this.url = LOCAL.base_url + 'api/json/download';
+        this.url = routes.download;
         this.enableDownloadBtn();
         this.handleSubmit();
     }
@@ -79,3 +81,8 @@ export default class Download{
     }
 
 }
+
+
+$(document).ready( ()=>{
+    new Download();
+})
