@@ -6,17 +6,14 @@ import '@fortawesome/fontawesome-free/js/all';
 import 'jquery.nicescroll';
 
 /* Costom components */
-import './frame/navResync';
-import './frame/download';      
-import './frame/nav';       
-
-/* internal module import */
-import {config, updateConfig} from './config';
+import './frame/NavResync';
+import './frame/Download';      
+import './frame/Nav';       
+import './frame/SideMenuToggle';       
 
 class designSystemUI{
          
     constructor(){
-        this.toggleSideBar();
         this.copyToClipboard();
         this.niceScroll();
         this.modalBox();
@@ -26,7 +23,6 @@ class designSystemUI{
     openModalBox(){
         let selector = location.hash ;
         if( selector.length){
-            console.log('if');
             $(selector).modal('show');
         }
     }   
@@ -47,19 +43,6 @@ class designSystemUI{
             cursorcolor: '#5b628e',
             cursorborder: 'none'
         });
-    }
-
-    toggleSideBar(){
-        if(config().isSideMenuOpened)
-            $('body').removeClass("side-menu-close");
-        else
-            $('body').addClass("side-menu-close");
-
-        $('.back-arrow a').on('click', e=>{
-            e.preventDefault();
-            updateConfig('isSideMenuOpened', !config().isSideMenuOpened );
-            $('body').toggleClass("side-menu-close");
-        })
     }
 
     copyToClipboard() {

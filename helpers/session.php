@@ -18,7 +18,9 @@ class Session{
    */
 
   public function start(){
-    session_start();
+    if(session_id() == '') {
+      session_start();
+    }
     return $this;
   }
 

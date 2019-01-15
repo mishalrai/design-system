@@ -1,8 +1,14 @@
 <?php
-    require_once ('function.php');
-    require_once ('template-parts/header.php'); /* Header section */
-    require_once ('template-parts/side_bar_menu.php'); /* Side menu */
-    require_once ('template-parts/menu_toggler.php'); /* Side menu toggler arrow */
+    require_once 'constant.php'; 
+    require_once 'helpers/Session.php'; 
+    require_once 'helpers/Config.php'; 
+    require_once 'helpers/generate_htaccess_file.php';    
+    require_once 'helpers/Navigation.php'; 
+
+    require_once 'function.php';
+    require_once 'template-parts/header.php'; 
+    require_once 'template-parts/side_bar_menu.php'; 
+    require_once 'template-parts/menu_toggler.php'; 
 
     /* Dynamic section */
     if( !isset($_GET['page']) ) 

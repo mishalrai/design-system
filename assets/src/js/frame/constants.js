@@ -3,6 +3,7 @@ const apiBaseLocation = `${LOCAL.base_url}api/json`;
 
 export const routes = {
     download : `${apiBaseLocation}/download`,
+    config : `${apiBaseLocation}/config`,
     navigation: ( page )=> page !== '' ? `${apiBaseLocation}/navigation/${page}` : `${apiBaseLocation}/navigation`
 }
 

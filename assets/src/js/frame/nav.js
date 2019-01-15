@@ -43,9 +43,9 @@ class Nav{
                 .next()
                 .slideToggle()
                 .parent()
-                .addClass(className)
+                .addClass(this.className)
                 .siblings()
-                .removeClass(className)
+                .removeClass(this.className)
                 .find('ul')
                 .slideUp();
         })

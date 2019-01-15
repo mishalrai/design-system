@@ -1,9 +1,4 @@
 <?php
-    require_once 'constant.php'; 
-    require_once 'helpers/Session.php'; 
-    require_once 'helpers/generate_htaccess_file.php';    
-    require_once 'helpers/Navigation.php';  
-
 
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];

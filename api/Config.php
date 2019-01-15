@@ -1,31 +1,35 @@
 <?php
+    use helper\Config as Helper_Config;
 
     class Config extends Rest_Controller {
 
-        private $session_name = 'config';
-        protected $session = new Session();
-        private $default_config = array(
-            'is_side_menu_open' => false,
-            'selected_child' => 0,  
-        );
+        protected $helper_config;
 
         public function __construct(){
+
             $this->register_route( 'config', array(
                 'method' => 'post',
                 'callback' => array( $this, 'update')
-            ))
-            parent::__construct();
-            $this->set_initial_config();
+            ));
+
+            $this->helper_config = new Helper_Config();
         }
 
-        public function set_initial_config(){
-            if( !$session->isset( $this->$session_name) ){
-                $this->$session->fromArray( $this->$default_config );
+        public function update(){
+            $name = $_POST['name'];
+            $val = $_POST['value'];
+
+            if( isset($name) && isset($val)){
+                $this->helper_config->update( $name, $val );
+                $this->response(200, array(
+                    "status" => 200
+                ));
+                return;
             }
-        }
-
-        public function update( $name, $value){
-            $this->$session->set( $name, $value );
+            $this->response(200, array(
+                "status" => 304,
+                "message"=>"Fail to set value"
+            ));
         }
 
     }

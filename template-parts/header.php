@@ -20,5 +20,10 @@
             };
         </script>
     </head>
+    
+    <?php
+        $is_menu_open = $config->get()['is_menu_open'];
+        $class_name = $is_menu_open ==='hide' ? 'side-menu-close' : '';
+    ?>
 
-    <body class="side-menu-close">
+    <body class="<?php echo $class_name; ?>">

@@ -35,7 +35,6 @@ class NavResync{
     }
 
     handleRequest(){
-        
 
         $.ajax({
             url: routes.navigation( this.getCurrentPage() ),

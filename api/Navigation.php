@@ -3,7 +3,7 @@
 
     class Navigation extends Rest_Controller{
         
-        protected $navigation_helper = null;
+        protected $navigation_helper;
         function __construct(){
             $this->register_route('navigation/:active', array(
                 'method' => 'get',
