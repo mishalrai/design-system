@@ -6,7 +6,7 @@
     define ( 'HTACCESS_COOKIE_NAME', 'project_base');
     define ( 'HTACCESS_LOCATION', SYSTEM_PATH.'\api\.htaccess');
     
-    define ( 'FOLDER_TO_SCAN', array( 
+    define ( 'FOLDER_TO_SCAN', array(  
                'components' => SYSTEM_PATH.'\components',
                'layouts' => SYSTEM_PATH.'\layouts',
                'pages' => SYSTEM_PATH.'\pages'

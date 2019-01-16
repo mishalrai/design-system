@@ -1,11 +1,24 @@
-/* Bootstrap file import */ 
+
+/* Optional */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* prism js */
+@import "~prismjs/themes/prism-okaidia.css";   
+
+
+/* 
+
+**********************************************
+Bootstrap file import
+**********************************************
+
+HELPERS
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-/* Optional */
-@import "~bootstrap/scss/bootstrap";
-/* @import "~bootstrap/scss/type";
+MODULES
+@import "~bootstrap/scss/type";
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/code";  
 @import "~bootstrap/scss/grid";
@@ -13,7 +26,6 @@
 @import "~bootstrap/scss/buttons";   
 @import "~bootstrap/scss/modal";   
 @import "~bootstrap/scss/nav";   
-@import "~bootstrap/scss/close";   */ 
+@import "~bootstrap/scss/close"; 
 
-/* prism js */
-@import "~prismjs/themes/prism-okaidia.css";
+*/ 
