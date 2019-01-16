@@ -41,7 +41,7 @@ class NavResync{
             method: "GET",
             dataType: "json",
             beforeSend: ()=>{
-                this.$btnSync.find('.icon').html(this.syncing); 
+                this.$btnSync.addClass('not-allow').find('.icon').html(this.syncing); 
             },
             success: res =>{
                 if( 200 === res.status){
@@ -67,7 +67,7 @@ class NavResync{
             },
             complete : ()=>{
                 setTimeout( ()=>{
-                    this.$btnSync.find('.icon').html(this.sync);
+                    this.$btnSync.removeClass('not-allow').find('.icon').html(this.sync);
                 },1000)
             }
           });

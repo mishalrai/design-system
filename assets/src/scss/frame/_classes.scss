@@ -12,3 +12,8 @@
         color: $frame-color-white;
     }
 }
+
+.not-allow{
+    pointer-events: none;
+    cursor: not-allowed;  
+}

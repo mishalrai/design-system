@@ -1,10 +1,16 @@
 
 const apiBaseLocation = `${LOCAL.base_url}api/json`;
 
+const routesName = {
+    download : 'download',
+    config : 'config',
+    navigation: 'navigation'
+}
+
 export const routes = {
-    download : `${apiBaseLocation}/download`,
-    config : `${apiBaseLocation}/config`,
-    navigation: ( page )=> page !== '' ? `${apiBaseLocation}/navigation/${page}` : `${apiBaseLocation}/navigation`
+    download : `${apiBaseLocation}/${routesName.download}`,
+    config : `${apiBaseLocation}/${routesName.config}`,
+    navigation: page => page !== '' ? `${apiBaseLocation}/${routesName.navigation}/${page}` : `${apiBaseLocation}/${routesName.navigation}`
 }
 
 export const events = {

@@ -1,9 +1,7 @@
 const glob = require("glob");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ConcatPlugin = require('webpack-concat-plugin');
-const mode = 'development';
-var webpack = require('webpack');
+var webpack = require('webpack');  
 
 const getFileLists = (...data) => {
     let ret = {};
@@ -112,7 +110,7 @@ module.exports = {
             } 
         ]),
 
-        new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({  
             $: "jquery"
         })
     ],

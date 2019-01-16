@@ -2,7 +2,7 @@
     require_once 'constant.php'; 
     require_once 'helpers/Session.php'; 
     require_once 'helpers/Config.php'; 
-    require_once 'helpers/generate_htaccess_file.php';    
+    require_once 'helpers/Htaccess.php';    
     require_once 'helpers/Navigation.php'; 
 
     require_once 'function.php';
