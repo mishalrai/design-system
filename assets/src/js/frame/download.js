@@ -39,8 +39,7 @@ class Download{
 
     }
 
-
-    makePayload(){
+    makePayload(){ 
         let tempArr = [];
         $(this.form).find('[name]').each((i, e) => {
             let name = $(e).attr('name');

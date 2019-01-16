@@ -5,6 +5,11 @@
         $_POST['data']['function']($files); 
     }
 
+    function get_project_base(){
+        $uri = explode( '?', $_SERVER[ 'REQUEST_URI' ] );
+        return $uri[0];
+    }
+
     function get_base_url(){
         return sprintf(
             "%s://%s%s",

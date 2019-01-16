@@ -51,7 +51,6 @@ class Nav{
         })
     }
 
-
 }
 
 $(document).ready( ()=>{
