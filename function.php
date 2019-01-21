@@ -23,6 +23,9 @@
         echo "/".explode('/', $_SERVER['REQUEST_URI'])[1];
     };
 
+    function get_build_url(){
+        return get_base_url().'/assets/build/';
+    }
 
     function get_files_array(){
         $return_arr = array();
