@@ -2,3 +2,4 @@
 node_modules
 assets/build
 assets/..build
+api/.htaccess
