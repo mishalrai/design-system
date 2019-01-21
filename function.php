@@ -1,5 +1,5 @@
 <?php
-/* Test comment for function.php */
+
     if( isset($_POST['data']['function']) && isset($_POST['data']['files'] )){
         $files = $_POST['data']['files'];
         $_POST['data']['function']($files); 
