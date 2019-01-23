@@ -20,7 +20,7 @@ class Nav{
         $(document)
             .find(this.selector)
             .eq(config().selectedChild).find('ul')
-            .slideDown()
+            .show()
             .parent()
             .addClass(this.className);
     }
