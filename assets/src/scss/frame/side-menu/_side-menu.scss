@@ -9,7 +9,7 @@ $side-transition: left 0.3s ease-in-out, margin 0.3s ease-in-out;
     height: 100vh;
     z-index: 999; 
     top: 0;
-    background-color: $side-bg-color;
+    box-shadow: 0 0 8px 3px #26262624;
     -webkit-transition: $side-transition;
     transition: $side-transition;
     

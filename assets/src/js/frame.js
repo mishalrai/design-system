@@ -5,7 +5,7 @@ import 'bootstrap/js/dist/tab';
 import '@fortawesome/fontawesome-free/js/all';
 import 'jquery.nicescroll';
 
-/* Costom components */
+/* Custom components */
 import './frame/NavResync';
 import './frame/Download';      
 import './frame/Nav';       
@@ -38,7 +38,7 @@ class designSystemUI{
     }
 
     niceScroll(){
-        $('.main-navigation').niceScroll({
+        $(document).find('.main-navigation').niceScroll({
             cursorborderradius: 0,
             cursorcolor: '#5b628e',
             cursorborder: 'none'

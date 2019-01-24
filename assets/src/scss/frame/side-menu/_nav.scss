@@ -10,6 +10,21 @@ $menu-text-color : $color_white;
     ul{
         padding: 0;
         list-style: none;
+        
+        > li{
+            &.open{
+               > a{
+                    background: #26262626;
+                }
+            }
+
+            ul{
+                padding-left: 0.5rem;
+                a{
+                    padding: 0.5rem 0.7rem;
+                }
+            }
+        }
 
         ul{
             display: none;
@@ -17,7 +32,15 @@ $menu-text-color : $color_white;
             li{
                 &.active{
                     a{
-                        background-color: $active-menu-color;
+                        &:before{
+                            content: "";
+                            width: 8px;
+                            height: 8px;
+                            background: $frame-color-primary;
+                            display: inline-block;
+                            border-radius: 50%;
+                            margin-right: 0.5rem;
+                        }
                     }
                 }
                 a{
@@ -27,7 +50,6 @@ $menu-text-color : $color_white;
         }
 
         li{
-            padding: 0.2rem 0.5rem;
             color: $menu-text-color;
             font-size: 0.85rem;
             text-transform: capitalize;
@@ -38,7 +60,6 @@ $menu-text-color : $color_white;
 
             &.open{
                 .icon svg{
-
                     -webkit-transform: rotate(180deg);
                     transform: rotate(180deg);
                 }
@@ -49,7 +70,7 @@ $menu-text-color : $color_white;
                 right: 0;
                 top: 0;
                 height: 100%;
-                line-height: 2.7;
+                line-height: 3.2;
                 font-size: 0.8rem;
                 width: 34px;
                 z-index: -1;
@@ -63,11 +84,16 @@ $menu-text-color : $color_white;
         }
 
         a{
+            position: relative;
             color: inherit;
             display: block;
-            padding: 0.3rem 0.7rem;
-            color: darken($menu-text-color, 10%);
+            padding: 0.7rem 0.7rem;
+            color: $frame-color-primary;
             font-size: 0.8rem;
+
+            &:hover{
+                text-decoration: none;
+            }
         }
     }
 

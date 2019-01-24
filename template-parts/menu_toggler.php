@@ -1,5 +1,5 @@
 
-<div class="container-fluid py-3 clearfix">
+<div class="container-fluid py-3 clearfix bg-frame-primary">
     <div class='back-arrow float-left'>
         <a href="<?php get_home_url(); ?>"><i class='fa fa-arrow-left'></i></a>   
     </div>
