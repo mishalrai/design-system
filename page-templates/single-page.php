@@ -8,7 +8,7 @@
         ?>
             <!-- Get code icon -->
             <a href="#" class="get-code" data-toggle="modal" data-target=".bd-example-modal-lg">
-                <span class="text">Get code</span> <span class="code-icon"><i class="fas fa-code"></i></span>
+                <span class="text">Get code</span> <span class="code-icon bg-frame-primary"><i class="fas fa-code"></i></span>
             </a>
         <?php
     }else

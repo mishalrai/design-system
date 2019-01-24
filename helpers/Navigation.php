@@ -58,8 +58,17 @@
 
             foreach( $this->folder_to_scan as $key => $folder):
                 if( file_exists($folder) && sizeof(scandir($folder)) > 2 ):
-                    
-                    $temp_arr = array( "name" => $key, "index"=> $counter, "children" => array() );
+                    $icon;
+                    if( $key ==='components'){
+                        $icon = '<i class="fas fa-bezier-curve mr-2"></i>';
+                    }else if( $key === 'layouts'){
+                        $icon = '<i class="far fa-square mr-2"></i>';
+                    }else{
+                        $icon = '<i class="far fa-file mr-2"></i>';
+                    }
+
+
+                    $temp_arr = array( "name" => $key, "icon" => $icon, "index"=> $counter, "children" => array() );
                     $counter++;
 
                     if(is_dir($folder)) :
@@ -92,7 +101,8 @@
         function recursive( $arr ){
             foreach( $arr as $key => $val){
                 if( count ( $val['children'] ) > 0 ){
-                    $this->template .= '<li><a href="#" data-index='.$val['index'].'>'.$val['name'].$this->down_arrow.'</a><ul>';
+                    $icon = isset($val['icon']) ? $val['icon'] : '';
+                    $this->template .= '<li><a href="#" data-index='.$val['index'].'>'.$icon.$val['name'].$this->down_arrow.'</a><ul>';
                     $this->recursive( $val['children'] );
                 }else{
                     $name = basename( $val['name'],'.php');

@@ -1,16 +1,22 @@
 $active-menu-color : darken( #34395B, 7% );
-
 $menu-text-color : $color_white;
+
+.menu-title{
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    margin: 2rem 0 1rem;
+    font-weight: 500;
+    color: lighten( $frame-color-primary, 30% );
+}
+
+
 .main-navigation{
-    padding: 1rem 0 0 0;
     list-style: none;
     max-height: calc( 100vh - 65.7px);
     overflow: auto;
-    
-    ul{
-        padding: 0;
-        list-style: none;
-        
+
+
+    > ul{
         > li{
             &.open{
                > a{
@@ -18,13 +24,23 @@ $menu-text-color : $color_white;
                 }
             }
 
+            > a{
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+
             ul{
                 padding-left: 0.5rem;
                 a{
-                    padding: 0.5rem 0.7rem;
+                    padding: 0.5rem 0.7rem 0.5rem 1.4rem;
                 }
             }
         }
+    }
+
+    ul{
+        padding: 0;
+        list-style: none;
 
         ul{
             display: none;
@@ -42,9 +58,6 @@ $menu-text-color : $color_white;
                             margin-right: 0.5rem;
                         }
                     }
-                }
-                a{
-                    font-size: 0.75rem;
                 }
             }
         }
@@ -87,7 +100,7 @@ $menu-text-color : $color_white;
             position: relative;
             color: inherit;
             display: block;
-            padding: 0.7rem 0.7rem;
+            padding:0.7rem 0.7rem 0.7rem 1.4rem;
             color: $frame-color-primary;
             font-size: 0.8rem;
 
