@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-5">
     <h1>Home page</h1>   
     <pre>
         <code class="language-css rounded-0">

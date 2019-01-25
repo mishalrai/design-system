@@ -12,7 +12,7 @@ class Nav{
         this.toggleMenu(); 
 
         $(document).on( events.menuUpdate, ()=>{
-            this.toggleLastMenu();
+                this.toggleLastMenu();
         });
     }
 

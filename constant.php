@@ -1,9 +1,8 @@
  <?php
-    
     define ( 'SYSTEM_PATH', __DIR__ );
-    define ( 'NAVIGATION_COOKIE_NAME', 'navigation' );
     define ( 'CONFIG_COOKIE_NAME', 'config');
     define ( 'HTACCESS_COOKIE_NAME', 'project_base');
+    define ( 'NAVIGATION_COOKIE_NAME', 'navigation-'.explode( '/', $_SERVER['REQUEST_URI'] )[1]);
     define ( 'HTACCESS_LOCATION', SYSTEM_PATH.'\api\.htaccess');
     
     define ( 'FOLDER_TO_SCAN', array(  
