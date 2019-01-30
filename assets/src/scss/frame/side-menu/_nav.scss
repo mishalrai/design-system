@@ -32,7 +32,7 @@ $menu-text-color : $color_white;
             ul{
                 padding-left: 0.5rem;
                 a{
-                    padding: 0.5rem 0.7rem 0.5rem 1.4rem;
+                    padding: 0.7rem 0.7rem 0.7rem 2.2rem;
                 }
             }
         }
@@ -48,6 +48,8 @@ $menu-text-color : $color_white;
             li{
                 &.active{
                     a{
+                        position: relative;
+
                         &:before{
                             content: "";
                             width: 8px;
@@ -56,6 +58,10 @@ $menu-text-color : $color_white;
                             display: inline-block;
                             border-radius: 50%;
                             margin-right: 0.5rem;
+                            position: absolute;
+                            left: 1.1rem;
+                            top: 50%;
+                            transform: translateY(-50%);
                         }
                     }
                 }
@@ -83,7 +89,7 @@ $menu-text-color : $color_white;
                 right: 0;
                 top: 0;
                 height: 100%;
-                line-height: 3.2;
+                line-height: 3.7;
                 font-size: 0.8rem;
                 width: 34px;
                 z-index: -1;
@@ -100,7 +106,7 @@ $menu-text-color : $color_white;
             position: relative;
             color: inherit;
             display: block;
-            padding:0.7rem 0.7rem 0.7rem 1.4rem;
+            padding: 0.9rem 0.7rem 0.9rem 1.4rem;
             color: $frame-color-primary;
             font-size: 0.8rem;
 

@@ -1,7 +1,7 @@
 $get-code-size: 2.5rem;
 $get-code-bg-color: #34395B;
 $get-code-text-color: #fff;
-$get-code-shadow-color: #d1d5e2;
+$get-code-shadow-color: $frame-color-primary;
 
 .get-code{
     position: fixed;
@@ -28,7 +28,7 @@ $get-code-shadow-color: #d1d5e2;
         font-size: 0.9rem;
         margin-left: 0.1rem;
         color: $get-code-text-color;
-        box-shadow: 0 0 0 0 #{$get-code-shadow-color};
+        box-shadow: 0 0 0 0 rgba($get-code-shadow-color, 0.4);
         transition: all 0.2s ease-in-out;
     }
 
@@ -41,7 +41,7 @@ $get-code-shadow-color: #d1d5e2;
             opacity: 1;
         }
         .code-icon{
-            box-shadow: 0 0 0 0.3rem #{$get-code-shadow-color};
+            box-shadow: 0 0 0 6px rgba($get-code-shadow-color, 0.4);
         }
     }
 

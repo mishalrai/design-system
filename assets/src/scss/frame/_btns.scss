@@ -1,15 +1,19 @@
 .btn-sync{
-    border: 1px solid #ddd;
-    font-size: 0.8rem;
+    border: 1px solid lighten($frame-color-primary, 50%);       
+    font-size: 0.75rem;
     display: inline-block;
-    line-height: 2.1;
+    line-height: 2.3;
     text-align: center;
     border-radius: 2rem;
-    color: #fff; 
+    color: lighten($frame-color-primary, 10%); 
     width: 108px; 
+
+    .fa-check{
+        color: $frame-color-success;
+    }
     
     &:hover{
         text-decoration: none;
-        color: #fff;
+        color: lighten($frame-color-primary, 10%); 
     }
 }
