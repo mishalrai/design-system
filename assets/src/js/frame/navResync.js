@@ -57,11 +57,10 @@ class NavResync{
                     },500 )
                     return;
                 }
-            },
-            error: e =>{
+                
                 toast.error(
                     _toast.makeParam({
-                        message: res.message
+                        message: 'Fail To Sync Menu'
                     })
                 );
             },
