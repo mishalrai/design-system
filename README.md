@@ -3,7 +3,7 @@ Design system project help to reuse code  for designer. make a component using h
 which is reduce your total project duration. 
 
 ### Project requirement
-  node js shoud be preinstall.( node version - Greater than and equal to 8 ).
+  node js shoud be preinstall.( Node Version: 8 >= node js).
   
 ### Clone the project on your local server
 
