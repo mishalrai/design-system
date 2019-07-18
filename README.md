@@ -8,12 +8,12 @@ which is reduce your total project duration.
 ### Clone the project on your local server
 
 ### Simple steps to setup the project.
-  Step: 1 Rn the below command to install packages
+  Step: 1 Run the below command to install packages
   ```bash
     npm install
   ```
   
-  Step: 2 Rn the below command to compile the codes.
+  Step: 2 Run the below command to compile the codes.
    ```bash
     npm start
    ```
