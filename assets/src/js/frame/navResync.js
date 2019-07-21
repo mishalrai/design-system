@@ -1,13 +1,13 @@
 
 import toast from 'izitoast';
-import {routes, events, _toast} from './constants';
+import { routes, events, _toast } from './constants';
 
-class NavResync{
+class NavResync {
 
-    constructor(){
+    constructor() {
         this.btnSync = '.btn-sync';
         this.$btnSync = $('.btn-sync');
-        this.renderEle = '.main-navigation';
+        this.renderEle = '.md-main-navigation';
 
         /* icons */
         this.done = '<i class="fas fa-check"></i>';
@@ -17,36 +17,36 @@ class NavResync{
         this.handleClick();
     }
 
-    getCurrentPage(){
+    getCurrentPage() {
         let currentPage = location.href.split("page=")[1];
         return currentPage ? currentPage : '';
     }
 
-    handleClick(){
-        $(this.btnSync).on( 'click', e=>{
+    handleClick() {
+        $(this.btnSync).on('click', e => {
             e.preventDefault();
             this.handleRequest();
         });
     }
 
-    updateDOM( $template ){
-        $(this.renderEle).html( $template );
+    updateDOM($template) {
+        $(this.renderEle).html($template);
         $(document).trigger(events.menuUpdate);
     }
 
-    handleRequest(){
+    handleRequest() {
 
         $.ajax({
-            url: routes.navigation( this.getCurrentPage() ),
+            url: routes.navigation(this.getCurrentPage()),
             method: "GET",
             dataType: "json",
-            beforeSend: ()=>{
-                this.$btnSync.addClass('not-allow').find('.icon').html(this.syncing); 
+            beforeSend: () => {
+                this.$btnSync.addClass('not-allow').find('.icon').html(this.syncing);
             },
-            success: res =>{
-                if( 200 === res.status){
-                    this.updateDOM( res.data );
-                    setTimeout(()=>{
+            success: res => {
+                if (200 === res.status) {
+                    this.updateDOM(res.data);
+                    setTimeout(() => {
                         this.$btnSync.find('.icon').html(this.done);
                         toast.success(
                             _toast.makeParam({
@@ -54,26 +54,26 @@ class NavResync{
                             })
                         );
 
-                    },500 )
+                    }, 500)
                     return;
                 }
-                
+
                 toast.error(
                     _toast.makeParam({
                         message: 'Fail To Sync Menu'
                     })
                 );
             },
-            complete : ()=>{
-                setTimeout( ()=>{
+            complete: () => {
+                setTimeout(() => {
                     this.$btnSync.removeClass('not-allow').find('.icon').html(this.sync);
-                },1000)
+                }, 1000)
             }
-          });
+        });
     }
 
 }
 
-$(document).ready( ()=>{
+$(document).ready(() => {
     new NavResync();
 })

@@ -60,11 +60,11 @@
                 if( file_exists($folder) && sizeof(scandir($folder)) > 2 ):
                     $icon;
                     if( $key ==='components'){
-                        $icon = '<i class="fas fa-bezier-curve mr-2"></i>';
+                        $icon = '<i class="fas fa-bezier-curve"></i>';
                     }else if( $key === 'layouts'){
-                        $icon = '<i class="far fa-square mr-2"></i>';
+                        $icon = '<i class="far fa-square"></i>';
                     }else{
-                        $icon = '<i class="far fa-file mr-2"></i>';
+                        $icon = '<i class="far fa-file"></i>';
                     }
 
 
@@ -80,7 +80,6 @@
                                         "link" => "?cat=".$key."&page=".basename($file_name, '.php'),
                                         "children" => array() 
                                 ));
-                                // echo '<h1>'.basename($file_name,'.php').$_GET['page'].'<h1>';
                             endif;
 
                         endforeach;
@@ -100,14 +99,16 @@
          * */
         function recursive( $arr ){
             foreach( $arr as $key => $val){
+                $name = basename( $val['name'],'.php');
+                $class_name = isset( $_GET['page'] ) && $_GET['page'] === $name ?'active':'';
+                $style = isset($_GET['cat']) && $_GET['cat'] === $val['name'] ? 'style="display:block"' : '';
+
                 if( count ( $val['children'] ) > 0 ){
                     $icon = isset($val['icon']) ? $val['icon'] : '';
-                    $this->template .= '<li><a href="#" data-index='.$val['index'].'>'.$icon.$val['name'].$this->down_arrow.'</a><ul>';
+                    $this->template .= '<li><a href="#" data-index='.$val['index'].'><span class="md-cat-icon">'.$icon.'</span>'.$val['name'].$this->down_arrow.'</a><ul '.$style.'>';
                     $this->recursive( $val['children'] );
                 }else{
-                    $name = basename( $val['name'],'.php');
-                    $class_name = isset( $_GET['page'] ) && $_GET['page'] === $name ?'active':'';
-                    $this->template .= '<li class="'.$class_name.'"><a href="'.$val['link'].'">'.str_replace("-", " ",$name).'</a></li>';
+                    $this->template .= '<li class="'.$class_name.'" data="'.$class_name.'"><a href="'.$val['link'].'">'.str_replace("-", " ",$name).'</a></li>';
                     if( count( $arr ) == $key + 1 ){
                         $this->template .= '</ul></li>';
                     }
@@ -122,13 +123,11 @@
         function generate_template( $arr = array() ){
             if( count( $arr ) == 0 ){
                 $arr = $this->get();
-              /*   echo "<pre>";
-                print_r($arr);
-                echo "<pre>"; */
+           
             }
 
             $this->template = '';
             $this->recursive( $arr );
-            return '<ul class="menu">'.$this->template.'</ul>';
+            return '<ul class="md-menu">'.$this->template.'</ul>';
         }
 }

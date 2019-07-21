@@ -12,7 +12,7 @@
         </a>
 
         <div class="menu-title">Menu</div>
-        <div class="main-navigation">
+        <div class="md-main-navigation">
             <?php echo $navigation->get_nav(); ?>
         </div>
     </div>

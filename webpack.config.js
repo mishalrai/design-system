@@ -1,25 +1,25 @@
 const glob = require("glob");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');  
+var webpack = require('webpack');
 
 const getFileLists = (...data) => {
     let ret = {};
-    for( [i, obj] of Object.entries(data) ){
+    for ([i, obj] of Object.entries(data)) {
         let path = `${obj.base}${obj.src}`;
         pathList = glob.sync(path);
-        for( [i, p] of Object.entries(pathList) ){
-            let key = obj.dest+p.split('/').slice(-1)[0];
-            if(typeof obj.ext != "undefined"){
-                key = key.replace(obj.src.split('.').slice(-1)[0].trim(),obj.ext);
+        for ([i, p] of Object.entries(pathList)) {
+            let key = obj.dest + p.split('/').slice(-1)[0];
+            if (typeof obj.ext != "undefined") {
+                key = key.replace(obj.src.split('.').slice(-1)[0].trim(), obj.ext);
             }
 
-            if(typeof ret[key] == "undefined"){
+            if (typeof ret[key] == "undefined") {
                 ret[key] = [p];
-            }else{
+            } else {
                 ret[key].push(p);
             }
-        }   
+        }
     }
 
     return ret;
@@ -28,19 +28,22 @@ const getFileLists = (...data) => {
 const stylesheets = {
     base: './assets/src/scss/',
     src: '*.scss',
-    dest:'./assets/build/css/',
+    dest: './assets/build/css/',
     'ext': 'css'
 };
 
 const scripts = {
     base: './assets/src/js/',
     src: 'main.js',
-    dest:'/assets/build/js/'
+    dest: '/assets/build/js/'
 };
+
+
 
 let filesToTranspile = {};
 
 filesToTranspile = getFileLists(scripts, stylesheets);
+
 module.exports = {
     entry: filesToTranspile,
     devtool: 'source-map',
@@ -49,26 +52,26 @@ module.exports = {
         filename: '[name]',
     },
     module: {
-    	rules: [
-    		{
-    			test: /\.js$/,
+        rules: [
+            {
+                test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-    			options: {
-    				presets: ['@babel/preset-env']
-    			}
-            },  
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            },
             {
                 test: /\.(png|jpg|gif)$/,
                 use: [
-                  {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        useRelativePath: true,
-                        publicPath: '../img/'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            useRelativePath: true,
+                            publicPath: '../img/'
+                        }
                     }
-                  }
                 ]
             },
             {
@@ -76,20 +79,20 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [  
-                            {
-                                loader: 'css-loader',
-                                options: {sourceMap: true},
-                            },
-                            {
-                                loader: 'sass-loader',
-                                options: {sourceMap: true},
-                            }, 
-                            'postcss-loader'
-                        ]
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: { sourceMap: true },
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: { sourceMap: true },
+                        },
+                        'postcss-loader'
+                    ]
                 })
             }
-    	],
+        ],
     },
 
     plugins: [
@@ -99,18 +102,21 @@ module.exports = {
         }),
 
         new CopyWebpackPlugin([
-            {   from: './assets/src/img/',
-                to: './assets/build/img/' 
-            }, 
-            {   from: './assets/src/fonts/',
-                to: './assets/build/fonts/' 
-            }, 
-            {   from: './assets/src/svg/',
-                to: './assets/build/svg/' 
-            } 
+            {
+                from: './assets/src/img/',
+                to: './assets/build/img/'
+            },
+            {
+                from: './assets/src/fonts/',
+                to: './assets/build/fonts/'
+            },
+            {
+                from: './assets/src/svg/',
+                to: './assets/build/svg/'
+            }
         ]),
 
-        new webpack.ProvidePlugin({  
+        new webpack.ProvidePlugin({
             $: "jquery"
         })
     ],

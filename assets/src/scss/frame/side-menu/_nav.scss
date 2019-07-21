@@ -10,7 +10,7 @@ $menu-text-color : $color_white;
 }
 
 
-.main-navigation{
+.#{$prefix}-main-navigation{
     list-style: none;
     max-height: calc( 100vh - 65.7px);
     overflow: auto;
@@ -18,6 +18,13 @@ $menu-text-color : $color_white;
 
     > ul{
         > li{
+            .#{$prefix}-cat-icon{
+                width: 17px;
+                height: 17px;
+                display: inline-block;
+                margin-right: 0.2rem;
+            }
+
             &.open{
                > a{
                     background: #26262626;
